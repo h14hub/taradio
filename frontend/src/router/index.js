@@ -1,20 +1,26 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Splash from '../views/Splash.vue';
 import Home from '../views/Home.vue';
-import Radio from '../views/Radio.vue';
+import CreateRadio from '../components/admin/CreateRadio.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Splash',
+    component: Splash,
+  },
+  {
+    path: '/home',
+    name: 'Home',
     component: Home,
   },
   {
-    path: '/radio/:id',
-    name: 'radio',
-    component: Radio,
+    path: '/admin/radios/create',
+    name: 'Admin',
+    component: CreateRadio,
   },
   {
     path: '/about',

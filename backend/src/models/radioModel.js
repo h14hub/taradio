@@ -16,7 +16,8 @@ var radioSchema = new Schema({
 	'created_at' : String,
 	'updated_at' : String,
 	'streamUrl' : String,
-	'logoUrl' : String
+	'logoUrl' : String,
+	'published' : Boolean,
 });
 
 module.exports = mongoose.model('radio', radioSchema);

@@ -62,7 +62,8 @@ module.exports = {
 			created_at : req.body.created_at,
 			updated_at : req.body.updated_at,
 			streamUrl : req.body.streamUrl,
-			logoUrl : req.body.logoUrl
+            logoUrl : req.body.logoUrl,
+	        published : req.body.published,
 
         });
 
@@ -110,6 +111,7 @@ module.exports = {
 			radio.updated_at = req.body.updated_at ? req.body.updated_at : radio.updated_at;
 			radio.streamUrl = req.body.streamUrl ? req.body.streamUrl : radio.streamUrl;
 			radio.logoUrl = req.body.logoUrl ? req.body.logoUrl : radio.logoUrl;
+			radio.published = req.body.published ? req.body.published : radio.published;
 			
             radio.save(function (err, radio) {
                 if (err) {
