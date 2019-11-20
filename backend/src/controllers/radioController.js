@@ -49,22 +49,24 @@ module.exports = {
     create: function (req, res) {
         var radio = new radioModel({
 			name : req.body.name,
-			frequency : req.body.frequency,
-			city : req.body.city,
-			streetNumber : req.body.streetNumber,
-			streetName : req.body.streetName,
+			federation : req.body.federation,
+			associationName : req.body.associationName,
+			siret : req.body.siret,
+			address : req.body.address,
 			zipCode : req.body.zipCode,
-			lng : req.body.lng,
-			lat : req.body.lat,
-			radioType : req.body.radioType,
-			diffusionType : req.body.diffusionType,
-			slogan : req.body.slogan,
-			created_at : req.body.created_at,
-			updated_at : req.body.updated_at,
+			city : req.body.city,
+			siteUrl : req.body.siteUrl,
+			published : req.body.published,
+			logoUrl : req.body.logoUrl,
 			streamUrl : req.body.streamUrl,
-            logoUrl : req.body.logoUrl,
-	        published : req.body.published,
-
+			diffusionArea : req.body.diffusionArea,
+			presidentFullName : req.body.presidentFullName,
+			email : req.body.email,
+			administrativePhone : req.body.administrativePhone,
+			phone : req.body.phone,
+			lat : req.body.lat,
+            lng : req.body.lng,
+			slogan : req.body.slogan
         });
 
         radio.save(function (err, radio) {
@@ -97,21 +99,24 @@ module.exports = {
             }
 
             radio.name = req.body.name ? req.body.name : radio.name;
-			radio.frequency = req.body.frequency ? req.body.frequency : radio.frequency;
-			radio.city = req.body.city ? req.body.city : radio.city;
-			radio.streetNumber = req.body.streetNumber ? req.body.streetNumber : radio.streetNumber;
-			radio.streetName = req.body.streetName ? req.body.streetName : radio.streetName;
+			radio.federation = req.body.federation ? req.body.federation : radio.federation;
+			radio.associationName = req.body.associationName ? req.body.associationName : radio.associationName;
+			radio.siret = req.body.siret ? req.body.siret : radio.siret;
+			radio.address = req.body.address ? req.body.address : radio.address;
 			radio.zipCode = req.body.zipCode ? req.body.zipCode : radio.zipCode;
-			radio.lng = req.body.lng ? req.body.lng : radio.lng;
-			radio.lat = req.body.lat ? req.body.lat : radio.lat;
-			radio.radioType = req.body.radioType ? req.body.radioType : radio.radioType;
-			radio.diffusionType = req.body.diffusionType ? req.body.diffusionType : radio.diffusionType;
-			radio.slogan = req.body.slogan ? req.body.slogan : radio.slogan;
-			radio.created_at = req.body.created_at ? req.body.created_at : radio.created_at;
-			radio.updated_at = req.body.updated_at ? req.body.updated_at : radio.updated_at;
-			radio.streamUrl = req.body.streamUrl ? req.body.streamUrl : radio.streamUrl;
-			radio.logoUrl = req.body.logoUrl ? req.body.logoUrl : radio.logoUrl;
+			radio.city = req.body.city ? req.body.city : radio.city;
+			radio.siteUrl = req.body.siteUrl ? req.body.siteUrl : radio.siteUrl;
 			radio.published = req.body.published ? req.body.published : radio.published;
+			radio.logoUrl = req.body.logoUrl ? req.body.logoUrl : radio.logoUrl;
+			radio.streamUrl = req.body.streamUrl ? req.body.streamUrl : radio.streamUrl;
+			radio.diffusionArea = req.body.diffusionArea ? req.body.diffusionArea : radio.diffusionArea;
+			radio.presidentFullName = req.body.presidentFullName ? req.body.presidentFullName : radio.presidentFullName;
+			radio.email = req.body.email ? req.body.email : radio.email;
+			radio.administrativePhone = req.body.administrativePhone ? req.body.administrativePhone : radio.administrativePhone;
+			radio.phone = req.body.phone ? req.body.phone : radio.phone;
+			radio.lat = req.body.lat ? req.body.lat : radio.lat;
+			radio.lng = req.body.lng ? req.body.lng : radio.lng;
+			radio.slogan = req.body.slogan ? req.body.slogan : radio.slogan;
 			
             radio.save(function (err, radio) {
                 if (err) {

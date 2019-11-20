@@ -4,13 +4,14 @@ import logger from 'morgan';
 import bodyParser from 'body-parser';
 // import routes from './routes';
 import radioRoutes from './routes/radioRoutes';
+import cors from 'cors';
 
 import models, { connectDb } from './models';
 
 const app = express();
 app.disable('x-powered-by');
 
-
+app.use(cors());
 app.use(logger('dev', {
   skip: () => app.get('env') === 'test'
 }));
