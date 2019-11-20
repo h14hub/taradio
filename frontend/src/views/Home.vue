@@ -1,16 +1,19 @@
 <template>
   <div id="Home" class="page">
-    <Nav  :updateLocation="updateLocation" />
-    <RadioSelector />
+    <Nav :updateLocation="updateLocation" />
+    <RadioSelector :radios="radios"/>
     <Radio />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import axios from 'axios';
+
 import Nav from '@/components/Nav.vue';
 import RadioSelector from '@/components/RadioSelector.vue';
 import Radio from '@/components/Radio.vue';
+
 
 export default {
   name: 'Home',
@@ -21,6 +24,7 @@ export default {
   },
   data() {
     return {
+      radios: [],
       location: {
         lat: 0,
         lng: 0,
@@ -29,6 +33,21 @@ export default {
   },
   mounted() {
     this.updateLocation();
+    this.getRadios().then(() => {
+    });
+  },
+  computed: {
+    radio() {
+      let resp = {};
+      if (this.$route.params.id) {
+        if (this.radios.filter(r => r._id === this.$route.params.id)[0]) {
+          /* eslint no-underscore-dangle: 0 */
+          /* eslint prefer-destructuring:0 */
+          resp = this.radios.filter(r => r._id === this.$route.params.id)[0];
+        }
+      }
+      return resp;
+    },
   },
   methods: {
     updateLocation() {
@@ -43,6 +62,12 @@ export default {
           },
         );
       }
+    },
+    getRadios() {
+      const self = this;
+      axios.get('http://localhost:3000/radios').then((response) => {
+        self.radios = response.data;
+      });
     },
     distance(lat1, lon1, lat2, lon2, unit) {
       const radlat1 = Math.PI * lat1 / 180;

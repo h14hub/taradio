@@ -18,6 +18,11 @@ const routes = [
     component: Home,
   },
   {
+    path: '/home/:id',
+    name: 'HomeId',
+    component: Home,
+  },
+  {
     path: '/admin/radios/create',
     name: 'Admin',
     component: CreateRadio,
