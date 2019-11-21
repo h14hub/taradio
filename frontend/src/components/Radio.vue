@@ -2,22 +2,22 @@
   <div id="Radio">
     <div class="radio_wrapper">
       <div class="radio_img">
-
+        <img :src="radio.logoUrl" alt="">
       </div>
       <div class="radio_container first">
         <img src="../assets/ear.svg" alt="">
         <div class="text_wrapper">
           <p>
-            <strong>{{radio.frequency }}</strong>
+            <strong>{{radio.frequency || '104.4' }}</strong>
           </p>
-          <p>{{ radio.slogan }}</p>
+          <p>{{ radio.slogan || 'la radio la plus fun :)' }}</p>
         </div>
       </div>
       <div class="radio_container second">
         <img src="../assets/speaker.svg" alt="">
         <div class="text_wrapper">
           <p>
-            <i>{{ }}</i>
+            <i>{{ '22:30' }}</i>
           </p>
         </div>
         <img @click="mute()" src="../assets/speaker.svg" alt="">
@@ -94,6 +94,10 @@ export default {
       background: $midBlue;
       min-height: calc(60% - 4rem);
       height: calc(60% - 4rem);
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     .radio_container{
       display: flex;
@@ -114,6 +118,9 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
       }
       &.first{
         .text_wrapper{

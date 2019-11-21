@@ -20,6 +20,12 @@
       </div>
     </div>
     <div :class=" showMenu? 'menu-wrapper':'menu-wrapper translated'">
+      <h3>PRESENTATION</h3>
+      <p>Le CNRA ........................................
+        ...........................................................
+        ...........................................................
+        ...........................................................
+        ...........................................................</p>
     </div>
     <div :class=" showFilter? 'filter-wrapper':'filter-wrapper faded'">
       <input type="number" v-model="filters.distance" @change="updateFilters(filters)"/>
@@ -100,15 +106,20 @@ export default {
     }
   }
   .menu-wrapper{
+    padding: 0 1.5rem;
     position: fixed;
     border-radius:20px 0 0 20px;
     right: 0;
     top: calc(10vh + 2.5rem);
-    width: calc(100vw - 3.5rem);
+    width: calc(100vw - 6.5rem);
     height: calc(90vh - 4rem);
     background: $white;
     transition: 2s ease;
     z-index: 5;
+    p, h3{
+      color: black;
+      text-align: left;
+    }
   }
   .translated{
     transform: translateX(calc(100vw - 3.5rem));

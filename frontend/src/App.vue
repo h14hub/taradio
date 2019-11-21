@@ -63,7 +63,8 @@ h1 {
   font-weight: 500;
 }
 p {
-  font-size: 24px;
+  margin: 0;
+  font-size: 17px;
 }
 .page {
   max-width: calc(100vw - 3rem);
