@@ -4,13 +4,21 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const radioRoutes = require('./routes/radioRoutes');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
-const { connectDb } = require('./models');
 
-const history = require('connect-history-api-fallback');
 const serveStatic = require('serve-static')
+const connectDb = () => {
+  return mongoose.connect(process.env.DATABASE_URL,
+    { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true });
+};
 
 const app = express();
+
+
+
+
+
 app.disable('x-powered-by');
 
 app.use(cors());
