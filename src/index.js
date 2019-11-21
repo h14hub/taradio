@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 
-app.use(serveStatic(path.join(__dirname, '../dist')))
+app.use(serveStatic(path.join(__dirname, '../dist_front')))
 
 app.use('/radios/', radioRoutes);
 
@@ -40,5 +40,5 @@ connectDb().then(async () => {
 });
 
 
-const { PORT = 8080 } = process.env;
+const PORT= process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`)); // eslint-disable-line no-console
