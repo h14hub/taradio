@@ -31,13 +31,13 @@ export default {
   methods: {
     getRadios() {
       const self = this;
-      axios.get('http://localhost:3000/radios').then((response) => {
+      axios.get('https://taradio.herokuapp.com/radios').then((response) => {
         self.radios = response.data;
       });
     },
     deleteRadio(id) {
       const self = this;
-      axios.delete(`http://localhost:3000/radios/${id}`).then(() => {
+      axios.delete(`https://taradio.herokuapp.com/radios/${id}`).then(() => {
         self.getRadios();
       });
     },

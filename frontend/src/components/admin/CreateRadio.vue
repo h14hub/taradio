@@ -169,7 +169,7 @@ export default {
   methods: {
     createRadio() {
       const self = this;
-      axios.post('http://localhost:3000/radios', this.model).then(() => {
+      axios.post('https://taradio.herokuapp.com/radios', this.model).then(() => {
         self.$router.push('/admin/radios');
       });
     },

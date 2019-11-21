@@ -70,7 +70,7 @@ export default {
     },
     getRadios() {
       const self = this;
-      axios.get('http://localhost:3000/radios').then((response) => {
+      axios.get('https://taradio.herokuapp.com/radios').then((response) => {
         self.radios = response.data;
       });
     },

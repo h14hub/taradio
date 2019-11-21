@@ -181,7 +181,7 @@ export default {
   mounted() {
     const self = this;
     /* eslint no-underscore-dangle: 0 */
-    axios.get(`http://localhost:3000/radios/${this.$route.params.id}`).then((response) => {
+    axios.get(`https://taradio.herokuapp.com/radios/${this.$route.params.id}`).then((response) => {
       self.model = response.data;
     });
   },
@@ -190,7 +190,7 @@ export default {
       const self = this;
       /* eslint no-underscore-dangle: 0 */
       this.model.published = false;
-      axios.put(`http://localhost:3000/radios/${this.model._id}`, this.model).then(() => {
+      axios.put(`https://taradio.herokuapp.com/radios/${this.model._id}`, this.model).then(() => {
         self.$router.push('/admin/radios');
       });
     },
