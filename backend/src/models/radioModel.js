@@ -22,6 +22,7 @@ var radioSchema = new Schema({
 	'lng' : Number,
 	'slogan' : String,
 	'frequency' : String,
+	'radioType' : String,
 });
 
 module.exports = mongoose.model('radio', radioSchema);

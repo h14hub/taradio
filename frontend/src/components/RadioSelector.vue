@@ -45,9 +45,9 @@ export default {
   },
   computed: {
     filteredRadios() {
-      let filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
-      filtered = filtered.filter(radio => this.distance(radio.lat, radio.lng, this.location.lat, this.location.lng, 'KM') <= this.filters.distance);
-      return filtered;
+      const filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
+      const filteredWithDist = filtered.filter(radio => this.distance(radio.lat, radio.lng, this.location.lat, this.location.lng, 'KM') <= this.filters.distance);
+      return (filteredWithDist.length === 0) ? filtered : filteredWithDist;
     },
   },
   methods: {
@@ -114,10 +114,13 @@ export default {
     position: absolute;
     top: calc(25vh + calc(2rem + 1.5rem));
     width: calc(100% - 3rem);
-    max-height: calc(65vh - 1rem);
+    max-height: calc(75vh - 5rem);
     background: $midBlue;
     border-radius: 20px;
     overflow: scroll;
+    .radio{
+      padding: 0.3rem;
+    }
   }
 }
 </style>

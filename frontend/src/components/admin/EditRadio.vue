@@ -1,7 +1,7 @@
 <template>
   <div class="panel-body">
     <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
-    <button class="btn" @click="createRadio()"> Creer la Radio </button>
+    <button class="btn" @click="editRadio()"> Mettre a jour la Radio </button>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
         zipCode: '',
         city: '',
         siteUrl: '',
-        published: true,
+        published: Boolean,
         logoUrl: '',
         streamUrl: '',
         diffusionArea: '',
@@ -157,6 +157,18 @@ export default {
             label: 'ZONE DIFFUSION',
             model: 'diffusionArea',
           },
+          {
+            type: 'switch',
+            label: 'STATUT PUBLICATION',
+            model: 'published',
+            multi: true,
+            readonly: false,
+            featured: false,
+            disabled: false,
+            default: true,
+            textOn: 'Publié',
+            textOff: 'Non Publié',
+          },
         ],
       },
       formOptions: {
@@ -166,10 +178,19 @@ export default {
       },
     };
   },
+  mounted() {
+    const self = this;
+    /* eslint no-underscore-dangle: 0 */
+    axios.get(`http://localhost:3000/radios/${this.$route.params.id}`).then((response) => {
+      self.model = response.data;
+    });
+  },
   methods: {
-    createRadio() {
+    editRadio() {
       const self = this;
-      axios.post('http://localhost:3000/radios', this.model).then(() => {
+      /* eslint no-underscore-dangle: 0 */
+      this.model.published = false;
+      axios.put(`http://localhost:3000/radios/${this.model._id}`, this.model).then(() => {
         self.$router.push('/admin/radios');
       });
     },

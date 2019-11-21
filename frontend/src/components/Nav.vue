@@ -5,16 +5,16 @@
         <img src="../assets/Logo-Tara-Home.png" alt="logo Taradio" />
       </div>
       <div class="nav-buttons">
-        <div class="btn">
+        <div class="icon">
           <img src="../assets/share.svg" alt="logo Taradio" />
         </div>
-        <div class="btn" @click="showFilter=!showFilter">
+        <div class="icon" @click="showFilter=!showFilter">
           <img src="../assets/equalizer.svg" alt="logo Taradio" />
         </div>
-        <div class="btn" @click="updateLocation()">
+        <div class="icon" @click="updateLocation()">
           <img src="../assets/loc.png" alt="logo Taradio" />
         </div>
-        <div class="btn" @click="showMenu=!showMenu">
+        <div class="icon" @click="showMenu=!showMenu">
           <img src="../assets/menu.svg" alt="logo Taradio" />
         </div>
       </div>
@@ -43,9 +43,12 @@ export default {
       showMenu: false,
       showFilter: false,
       filters: {
-        distance: 1000,
+        distance: 10000,
       },
     };
+  },
+  mounted() {
+    this.filters.distance = 10000;
   },
 };
 </script>
@@ -80,7 +83,7 @@ export default {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      .btn {
+      .icon {
         border-radius: 20px;
         background: $deepBlue;
         margin: 0 0.2rem;

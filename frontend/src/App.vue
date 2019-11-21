@@ -19,11 +19,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: $textGrey;
+  color: white;
   background-color: $paleBlue;
   height: calc(100vh - 3rem);
   padding: 1.5rem;
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -76,5 +77,19 @@ p {
 
 .slogan {
   font-size: 24px;
+}
+.field-switch{
+  .field-wrap{
+    justify-content: center;
+    align-items: center;
+  }
+}
+.btn{
+  padding: 0.5rem 1.5rem;
+  border-radius: 15px;
+}
+.panel-body{
+  max-width: 500px;
+  margin: auto;
 }
 </style>

@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import Splash from '../views/Splash.vue';
 import Home from '../views/Home.vue';
 import CreateRadio from '../components/admin/CreateRadio.vue';
+import EditRadio from '../components/admin/EditRadio.vue';
+import ListRadios from '../components/admin/ListRadios.vue';
 
 Vue.use(VueRouter);
 
@@ -24,8 +26,18 @@ const routes = [
   },
   {
     path: '/admin/radios/create',
-    name: 'Admin',
+    name: 'Admin-CreateRadio',
     component: CreateRadio,
+  },
+  {
+    path: '/admin/radios/:id/edit',
+    name: 'Admin-EditRadio',
+    component: EditRadio,
+  },
+  {
+    path: '/admin/radios',
+    name: 'Admin-ListRadios',
+    component: ListRadios,
   },
   {
     path: '/about',

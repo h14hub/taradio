@@ -49,6 +49,9 @@ export default {
       this.$refs.player.load();
     });
   },
+  updated() {
+    this.play();
+  },
   methods: {
     play() {
       this.playing = !this.playing;
