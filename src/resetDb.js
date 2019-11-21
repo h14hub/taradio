@@ -14,7 +14,7 @@ var mongoose = require("mongoose");
 
 function seedRadios() {
   mongoose
-    .connect("mongodb://localhost:27017/taradio_backend", {
+    .connect("mongodb://heroku_dvg7f743:ntg2v2jt0qhnnchc7l7vslogpm@ds051841.mlab.com:51841/heroku_dvg7f743", {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true,
