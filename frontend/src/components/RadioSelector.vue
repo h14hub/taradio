@@ -12,15 +12,14 @@
       </div>
     </div>
     <div :class="show ? 'radioSelector-hidden' : 'radioSelector-hidden hide'">
-      <router-link
-        :to="'/home/'+radio._id"
-        tag="div"
+      <div
         v-for="radio in filteredRadios"
         :key="radio._id"
         class="radio"
+        @click="goToAndHide(radio._id)"
       >
         {{ radio.name }}
-      </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -30,15 +29,52 @@ export default {
   name: 'RadioSelector',
   props: {
     radios: Array,
+    location: Object,
+    filters: Object,
   },
   data() {
     return {
       show: false,
     };
   },
+  updated() {
+    if (!this.$route.params.id) {
+      /* eslint no-underscore-dangle: 0 */
+      this.$router.push(`/home/${this.filteredRadios[0]._id}`);
+    }
+  },
   computed: {
     filteredRadios() {
-      return this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
+      let filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
+      filtered = filtered.filter(radio => this.distance(radio.lat, radio.lng, this.location.lat, this.location.lng, 'KM') <= this.filters.distance);
+      return filtered;
+    },
+  },
+  methods: {
+    goToAndHide(id) {
+      this.show = !this.show;
+      this.$router.push(`/home/${id}`);
+    },
+    distance(lat1, lon1, lat2, lon2, unit) {
+      const radlat1 = Math.PI * lat1 / 180;
+      const radlat2 = Math.PI * lat2 / 180;
+      const theta = lon1 - lon2;
+      const radtheta = Math.PI * theta / 180;
+      let dist = Math.sin(radlat1)
+        * Math.sin(radlat2)
+        + Math.cos(radlat1)
+        * Math.cos(radlat2)
+        * Math.cos(radtheta);
+
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = dist * 180 / Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit === 'K') { dist *= 1.609344; }
+      if (unit === 'N') { dist *= 0.8684; }
+      return ((lat1 === lat2) && (lon1 === lon2)) ? 0 : dist;
     },
   },
 };

@@ -66,7 +66,8 @@ module.exports = {
 			phone : req.body.phone,
 			lat : req.body.lat,
             lng : req.body.lng,
-			slogan : req.body.slogan
+			slogan : req.body.slogan,
+			frequency : req.body.frequency,
         });
 
         radio.save(function (err, radio) {
@@ -117,6 +118,7 @@ module.exports = {
 			radio.lat = req.body.lat ? req.body.lat : radio.lat;
 			radio.lng = req.body.lng ? req.body.lng : radio.lng;
 			radio.slogan = req.body.slogan ? req.body.slogan : radio.slogan;
+			radio.frequency = req.body.frequency ? req.body.frequency : radio.frequency;
 			
             radio.save(function (err, radio) {
                 if (err) {

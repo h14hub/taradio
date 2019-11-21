@@ -8,9 +8,9 @@
         <img src="../assets/ear.svg" alt="">
         <div class="text_wrapper">
           <p>
-            <strong>{{ }}</strong>
+            <strong>{{radio.frequency }}</strong>
           </p>
-          <p>{{ }}</p>
+          <p>{{ radio.slogan }}</p>
         </div>
       </div>
       <div class="radio_container second">
@@ -20,10 +20,14 @@
             <i>{{ }}</i>
           </p>
         </div>
-        <img src="../assets/speaker.svg" alt="">
-        <img src="../assets/speaker.svg" alt="">
+        <img @click="mute()" src="../assets/speaker.svg" alt="">
+        <img @click="play()" src="../assets/play-button.svg" alt="">
       </div>
     </div>
+    <audio id="audio" ref="player" controls autoplay hidden>
+        <source v-bind:src="radio.streamUrl">
+        Your browser does not support the audio element.
+    </audio>
   </div>
 </template>
 
@@ -31,6 +35,38 @@
 
 export default {
   name: 'Radio',
+  props: {
+    radio: Object,
+  },
+  data() {
+    return {
+      playing: false,
+      muted: false,
+    };
+  },
+  mounted() {
+    this.$watch('radio.streamUrl', () => {
+      this.$refs.player.load();
+    });
+  },
+  methods: {
+    play() {
+      this.playing = !this.playing;
+      if (this.playing) {
+        this.$refs.player.play();
+      } else {
+        this.$refs.player.pause();
+      }
+    },
+    mute() {
+      this.muted = !this.muted;
+      if (this.muted) {
+        this.$refs.player.muted = true;
+      } else {
+        this.$refs.player.muted = false;
+      }
+    },
+  },
 };
 </script>
 

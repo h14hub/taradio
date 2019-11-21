@@ -11,8 +11,8 @@
         <div class="btn" @click="showFilter=!showFilter">
           <img src="../assets/equalizer.svg" alt="logo Taradio" />
         </div>
-        <div class="btn" @click="this.updateLocation">
-          <img src="../assets/menu.svg" alt="logo Taradio" />
+        <div class="btn" @click="updateLocation()">
+          <img src="../assets/loc.png" alt="logo Taradio" />
         </div>
         <div class="btn" @click="showMenu=!showMenu">
           <img src="../assets/menu.svg" alt="logo Taradio" />
@@ -22,6 +22,7 @@
     <div :class=" showMenu? 'menu-wrapper':'menu-wrapper translated'">
     </div>
     <div :class=" showFilter? 'filter-wrapper':'filter-wrapper faded'">
+      <input type="number" v-model="filters.distance" @change="updateFilters(filters)"/>
     </div>
   </div>
 </template>
@@ -33,11 +34,17 @@ export default {
     updateLocation: {
       type: Function,
     },
+    updateFilters: {
+      type: Function,
+    },
   },
   data() {
     return {
       showMenu: false,
       showFilter: false,
+      filters: {
+        distance: 1000,
+      },
     };
   },
 };
@@ -95,7 +102,7 @@ export default {
     right: 0;
     top: calc(10vh + 2.5rem);
     width: calc(100vw - 3.5rem);
-    height: calc(90vh - 2.5rem);
+    height: calc(90vh - 4rem);
     background: $white;
     transition: 2s ease;
     z-index: 5;
