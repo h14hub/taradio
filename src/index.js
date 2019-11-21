@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 const serveStatic = require('serve-static')
 const connectDb = () => {
-  return mongoose.connect(process.env.DATABASE_URL,
+  return mongoose.connect(process.env.MONGODB_URI,
     { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true });
 };
 
