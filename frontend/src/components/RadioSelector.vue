@@ -118,6 +118,7 @@ export default {
     background: $midBlue;
     border-radius: 20px;
     overflow: scroll;
+    z-index: 1;
     .radio{
       padding: 0.3rem;
     }

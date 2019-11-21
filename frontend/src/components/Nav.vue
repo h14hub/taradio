@@ -125,7 +125,8 @@ export default {
     transform: translateX(calc(100vw - 3.5rem));
   }
   .filter-wrapper{
-    width: calc(100vw - 3rem);
+    padding: 2rem;
+    width: calc(100vw - 7rem);
     position: fixed;
     top: calc(10vh + 2.5rem);
     left: 1.5rem;

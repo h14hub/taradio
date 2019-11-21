@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="radio_container second">
-        <img src="../assets/speaker.svg" alt="">
+        <img src="../assets/radio2.png" alt="">
         <div class="text_wrapper">
           <p>
             <i>{{ '22:30' }}</i>
@@ -121,6 +121,10 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: self-start;
+        i{
+          position: relative;
+          top: 4px;
+        }
       }
       &.first{
         .text_wrapper{
