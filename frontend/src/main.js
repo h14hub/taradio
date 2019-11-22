@@ -23,10 +23,9 @@ new Vue({
       /* eslint-disable-next-line no-console */
       console.log('beforeinstallprompt');
     });
-
-    document.querySelector('#install-button').addEventListener('click', () => {
+    document.addEventListener('click', () => {
       // Update the install UI to remove the install button
-      document.querySelector('#install-button').classList.remove('hidden');
+      // document.querySelector('#install-button').classList.remove('hidden');
       // Show the modal add to home screen dialog
       installPromptEvent.prompt();
       // Wait for the user to respond to the prompt

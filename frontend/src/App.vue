@@ -3,7 +3,6 @@
     <transition name="fade" mode="in-out">
       <router-view />
     </transition>
-    <button id="install-button" class="hidden">Install App</button>
   </div>
 </template>
 
@@ -13,16 +12,6 @@
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Chivo:300,400,700,900&display=swap");
 @import "./assets/styles.scss";
-.hidden{
-  display: none;
-}
-#install-button{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 2rem;
-  transform: translate(-50%, -50%);
-}
 body {
   margin: 0;
   padding: 0;
