@@ -2,7 +2,8 @@
   <div id="Radio">
     <div class="radio_wrapper">
       <div class="radio_img">
-        <img :src="radio.logoUrl" alt="">
+        <!-- <img :src="radio.logoUrl" alt=""> -->
+        <img class="loader" src="../assets/throbber.gif" alt="">
       </div>
       <div class="radio_container first">
         <img src="../assets/ear.svg" alt="">
@@ -51,6 +52,10 @@ export default {
   },
   updated() {
     this.play();
+    document.querySelector('.loader').classList.remove('hidden');
+    setInterval(() => {
+      document.querySelector('.loader').classList.add('hidden');
+    }, 2000);
   },
   methods: {
     play() {
@@ -76,7 +81,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import '../assets/styles.scss';
-
+.hidden{
+  display: none;
+}
 #Radio{
   height: calc(75vh - calc(1rem + 3rem));
   .radio_wrapper{
@@ -94,9 +101,14 @@ export default {
       background: $midBlue;
       min-height: calc(60% - 4rem);
       height: calc(60% - 4rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       img{
         width: 100%;
         height: 100%;
+        width: 25px;
+        height: 25px;
       }
     }
     .radio_container{
