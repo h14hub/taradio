@@ -30,8 +30,11 @@ export default {
         lng: 0,
       },
       filters: {
-        distance: 1000,
+        distance: 80,
+        city: '',
+        genre: '',
       },
+      genres: ['Blues Soul', 'Blues', 'Soul', 'Groove Funk', 'Classique', 'Opéra', 'Piano', 'Communautaire', 'Bouddhisme', 'Campus Collège', 'Chrétien', 'Communautaire', 'Gay', 'Islam', 'Judaisme', 'Dance DJ', 'Dancefloor', 'DJ Mix', 'Top 50', 'Decades', 'Adulte contemporain', 'Disco', 'Oldies', 'Variétés', 'Vintage', 'Electro', 'Drum and bass', 'Electro Hard rave', 'Electro House', 'Electro Techno', 'Electro Trance', 'Electro varié', 'Hardcore', 'Independant', 'Gothique', 'Indie Alternative', 'Underground', 'Info Eco Sport', 'Economie', 'Informations', 'Meteo', 'Police Scanner', 'Sport', 'Jazz', 'Latino', 'Latino bachata', 'Latino Baladas', 'Latino cumbia', 'Latino Merengue', 'Latino Salsa', 'Latino Soca', 'Latino Tango', 'Latino Tropicale', 'Latino varié', 'Latino Zouk', 'Lounge Zen', 'Easy listening', 'Lounge ambient', 'New age', 'Zen Nature Spirituel', 'Pop', 'Reggae', 'Dubstep', 'Reggae Dancehall', 'Reggaeton Ragga', 'Rock', 'Hard rock', 'Metal', 'Rock', 'Rock alternatif', 'RocknRoll Swing', 'Thematic', 'Acoustic guitare', 'Culturel', 'Electro varié', 'Enfants', 'Gospel', 'Humour', 'Jeux Games', 'Live', 'Love', 'Noel Celebration', 'Progressive', 'Talk', 'Tribute', 'Vocal', 'Urban', 'Breakbeat', 'Rap', 'RnB', 'Urban', 'Various', 'Généraliste', 'Variés Various', 'World', 'Africain', 'Americana', 'Asiatique Asian', 'Autres pays World', 'Brésilien Samba', 'Celtique', 'Chanson Française', 'Europe', 'Flamenco', 'Grec Greek', 'Indien', 'Irlandais Irish', 'Italien', 'Manele', 'Mexicain', 'Oriental', 'Polka Tchéque', 'Russe Russian', 'Turc', 'Western', 'ZabavnaNarodna', 'Country', 'Bluegrass', 'Country', 'Country Blues', 'Country Pop', 'Country Rock'],
     };
   },
   mounted() {

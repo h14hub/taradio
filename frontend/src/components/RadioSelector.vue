@@ -25,6 +25,8 @@
 </template>
 
 <script>
+const geocoder = require('google-geocoder');
+
 export default {
   name: 'RadioSelector',
   props: {
@@ -43,14 +45,50 @@ export default {
       this.$router.push(`/home/${this.filteredRadios[0]._id}`);
     }
   },
-  computed: {
-    filteredRadios() {
+  asyncComputed: {
+    /* eslint-disable no-return-await */
+    /* eslint-disable consistent-return */
+    /* eslint-disable vue/return-in-computed-property */
+    /* eslint-disable vue/no-async-in-computed-properties */
+    /* eslint-disable no-else-return */
+    async filteredRadios() {
       const filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
-      const filteredWithDist = filtered.filter(radio => this.distance(radio.lat, radio.lng, this.location.lat, this.location.lng, 'KM') <= this.filters.distance);
-      return (filteredWithDist.length === 0) ? filtered : filteredWithDist;
+      let filteredWithDist = [];
+      let filteredWithDistAndStyle = [];
+      if (this.filters.city) {
+        const cityLocation = await this.geocode(this.filters.city);
+        filteredWithDist = filtered.filter(radio => this.distance(radio.lat, radio.lng, cityLocation.lat, cityLocation.lng, 'KM') <= this.filters.distance);
+      } else {
+        filteredWithDist = filtered.filter(radio => this.distance(radio.lat, radio.lng, this.location.lat, this.location.lng, 'KM') <= this.filters.distance);
+      }
+      if (this.filters.style) {
+        filteredWithDistAndStyle = filteredWithDist
+          .filter(radio => radio.radioStyle === this.filters.style);
+        return (filteredWithDistAndStyle.length === 0) ? filtered : filteredWithDistAndStyle;
+      } else {
+        return (filteredWithDist.length === 0) ? filtered : filteredWithDist;
+      }
     },
   },
   methods: {
+    geocode(city) {
+      const geo = geocoder({
+        key: 'AIzaSyDt3JwIm0WkonkGX5svIgI3f20oonUjwds',
+      });
+      return new Promise((resolve, reject) => {
+        geo.find(city, (err, res) => {
+          if (res) {
+            if (res[0]) {
+              if (res[0].location) {
+                resolve(res[0].location);
+              }
+            }
+          } else {
+            reject();
+          }
+        });
+      });
+    },
     goToAndHide(id) {
       this.show = !this.show;
       this.$router.push(`/home/${id}`);

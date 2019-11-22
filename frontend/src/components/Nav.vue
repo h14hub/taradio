@@ -81,8 +81,42 @@
         Courriel : president@cnra.fr
     </p>
     </div>
-    <div :class=" showFilter? 'filter-wrapper':'filter-wrapper faded'">
-      <input type="number" v-model="filters.distance" @change="updateFilters(filters)"/>
+    <div :class=" showFilter? 'filter-wrapper wrap':'filter-wrapper wrap faded'">
+      <label for=""> Distance </label>
+      <div class="slidecontainer">
+        <span>0</span>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value="80"
+          class="slider"
+          id="myRange"
+          v-model.number="filters.distance"
+          @change="updateFilters(filters)"
+        >
+        <span>100</span>
+      </div>
+      <div class="wrap">
+        <label for=""> Ville </label>
+        <input
+          type="text"
+          style="width: 100%;"
+          v-model="filters.city"
+          @keyup="updateFilters(filters)"
+        >
+      </div>
+      <div class="wrap">
+        <label for=""> Genre Musical </label>
+        <select
+          style="width: 100%;"
+          v-model="filters.genre"
+          @keyup="updateFilters(filters)"
+        >
+          <option v-for="(genre, index) in genres" :key="`${genre}${index}`">{{genre}}</option>
+        </select>
+
+      </div>
     </div>
   </div>
 </template>
@@ -103,12 +137,15 @@ export default {
       showMenu: false,
       showFilter: false,
       filters: {
-        distance: 10000,
+        distance: 80,
+        city: '',
+        genre: '',
       },
+      genres: ['Blues Soul', 'Blues', 'Soul', 'Groove Funk', 'Classique', 'Opéra', 'Piano', 'Communautaire', 'Bouddhisme', 'Campus Collège', 'Chrétien', 'Communautaire', 'Gay', 'Islam', 'Judaisme', 'Dance DJ', 'Dancefloor', 'DJ Mix', 'Top 50', 'Decades', 'Adulte contemporain', 'Disco', 'Oldies', 'Variétés', 'Vintage', 'Electro', 'Drum and bass', 'Electro Hard rave', 'Electro House', 'Electro Techno', 'Electro Trance', 'Electro varié', 'Hardcore', 'Independant', 'Gothique', 'Indie Alternative', 'Underground', 'Info Eco Sport', 'Economie', 'Informations', 'Meteo', 'Police Scanner', 'Sport', 'Jazz', 'Latino', 'Latino bachata', 'Latino Baladas', 'Latino cumbia', 'Latino Merengue', 'Latino Salsa', 'Latino Soca', 'Latino Tango', 'Latino Tropicale', 'Latino varié', 'Latino Zouk', 'Lounge Zen', 'Easy listening', 'Lounge ambient', 'New age', 'Zen Nature Spirituel', 'Pop', 'Reggae', 'Dubstep', 'Reggae Dancehall', 'Reggaeton Ragga', 'Rock', 'Hard rock', 'Metal', 'Rock', 'Rock alternatif', 'RocknRoll Swing', 'Thematic', 'Acoustic guitare', 'Culturel', 'Electro varié', 'Enfants', 'Gospel', 'Humour', 'Jeux Games', 'Live', 'Love', 'Noel Celebration', 'Progressive', 'Talk', 'Tribute', 'Vocal', 'Urban', 'Breakbeat', 'Rap', 'RnB', 'Urban', 'Various', 'Généraliste', 'Variés Various', 'World', 'Africain', 'Americana', 'Asiatique Asian', 'Autres pays World', 'Brésilien Samba', 'Celtique', 'Chanson Française', 'Europe', 'Flamenco', 'Grec Greek', 'Indien', 'Irlandais Irish', 'Italien', 'Manele', 'Mexicain', 'Oriental', 'Polka Tchéque', 'Russe Russian', 'Turc', 'Western', 'ZabavnaNarodna', 'Country', 'Bluegrass', 'Country', 'Country Blues', 'Country Pop', 'Country Rock'],
     };
   },
   mounted() {
-    this.filters.distance = 10000;
+    this.filters.distance = 80;
   },
 };
 </script>
@@ -116,6 +153,47 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
 @import "../assets/styles.scss";
+.slidecontainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span{
+    width: 25px;
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: $paleBlue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: $paleBlue;
+  cursor: pointer;
+}
 
 #Nav {
   height: 10vh;
@@ -185,12 +263,19 @@ export default {
     position: fixed;
     top: calc(10vh + 2.5rem);
     left: 1.5rem;
-    height: 300px;
     border-radius: 20px;
     transition: 2s ease;
     opacity: 1;
     background: $deepBlue;
     z-index: 3;
+    .wrap{
+      padding: 1rem 0;
+      width: 100%;
+      select{
+        width: 100%;
+        height: 28px;
+      }
+    }
   }
   .faded{
     opacity: 0;
