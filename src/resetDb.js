@@ -14,7 +14,7 @@ var mongoose = require("mongoose");
 
 function seedRadios() {
   mongoose
-    .connect("mongodb://heroku_dvg7f743:ntg2v2jt0qhnnchc7l7vslogpm@ds051841.mlab.com:51841/heroku_dvg7f743", {
+    .connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true,
