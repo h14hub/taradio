@@ -3,7 +3,7 @@
     <div class="radio_wrapper">
       <div class="radio_img">
         <!-- <img :src="radio.logoUrl" alt=""> -->
-        <img class="loader" src="../assets/throbber.gif" alt="">
+        <!-- <img class="loader" src="../assets/Fond-Placeholder.gif" alt=""> -->
       </div>
       <div class="radio_container first">
         <img src="../assets/ear.svg" alt="">
@@ -52,10 +52,10 @@ export default {
   },
   updated() {
     this.play();
-    document.querySelector('.loader').classList.remove('hidden');
-    setInterval(() => {
-      document.querySelector('.loader').classList.add('hidden');
-    }, 2000);
+    // document.querySelector('.loader').classList.remove('hidden');
+    // setInterval(() => {
+    //   document.querySelector('.loader').classList.add('hidden');
+    // }, 2000);
   },
   methods: {
     play() {
@@ -99,6 +99,9 @@ export default {
     }
     .radio_img{
       background: $midBlue;
+      background-image: url('../assets/Fond-Placeholder.gif');
+      background-size: cover;
+      background-position: center;
       min-height: calc(60% - 4rem);
       height: calc(60% - 4rem);
       display: flex;
@@ -107,8 +110,8 @@ export default {
       img{
         width: 100%;
         height: 100%;
-        width: 25px;
-        height: 25px;
+        // width: 25px;
+        // height: 25px;
       }
     }
     .radio_container{

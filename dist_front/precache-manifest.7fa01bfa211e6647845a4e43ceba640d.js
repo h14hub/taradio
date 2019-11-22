@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/android-chrome-512x512.png"
   },
   {
-    "revision": "531a92a5de1b14771a3c",
-    "url": "/css/app.a5802e8a.css"
+    "revision": "f0b86f9d16970439e372",
+    "url": "/css/app.56e7533f.css"
   },
   {
     "revision": "9fe2cb44c0537e201a5e",
@@ -22,6 +22,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "edc8c598787fa18e7272f3d4b2504839",
     "url": "/img/Bg-paterne.edc8c598.png"
+  },
+  {
+    "revision": "8164f42931b577f1ec3eacf4a3c9b9c9",
+    "url": "/img/Fond-Placeholder.8164f429.gif"
   },
   {
     "revision": "edf1d9ad9bbad4eeacabcaadfaefab80",
@@ -64,11 +68,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/speaker.1fd5e10d.svg"
   },
   {
-    "revision": "5fe0e55f8e19bc4cc3201876dce7b224",
-    "url": "/img/throbber.5fe0e55f.gif"
-  },
-  {
-    "revision": "6d66ec15cbd7fdddd7c18f5fc3ac49c9",
+    "revision": "08f297af20711234626a950a9ac54302",
     "url": "/index.html"
   },
   {
@@ -76,8 +76,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.eaf348d4.js"
   },
   {
-    "revision": "531a92a5de1b14771a3c",
-    "url": "/js/app.650fe7bd.js"
+    "revision": "f0b86f9d16970439e372",
+    "url": "/js/app.8fc9af4f.js"
   },
   {
     "revision": "9fe2cb44c0537e201a5e",
