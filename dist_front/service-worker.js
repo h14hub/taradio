@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.690a419a9eaba6cabfb0d6fa90245a14.js"
+  "/precache-manifest.588354a72aa7348af360e7193f8cfb86.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "taradio"});

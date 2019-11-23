@@ -1,7 +1,7 @@
 <template>
   <div id="Radio">
     <div class="radio_wrapper">
-      <div class="radio_img">
+      <div :class=" radio.logoUrl? 'radio_img no_background' : 'radio_img'">
         <img :src="radio.logoUrl" alt="">
       </div>
       <div class="radio_container first">
@@ -93,7 +93,7 @@ export default {
       border-radius: 20px;
     }
     .radio_img{
-      background: $midBlue;
+      background: $deepBlue;
       background-image: url('../assets/Fond-Placeholder.gif');
       background-size: cover;
       background-position: center;
@@ -102,9 +102,12 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
+      &.no_background{
+        background-image: unset;
+      }
       img{
-        width: 100%;
-        height: 100%;
+        width: 35%;
+        height: 35%;
         border-radius: 20px;
       }
     }

@@ -60,6 +60,8 @@ export default {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
+            /* eslint-disable no-console */
+            console.log(position);
             self.location = {
               lat: position.coords.latitude,
               lng: position.coords.longitude,
