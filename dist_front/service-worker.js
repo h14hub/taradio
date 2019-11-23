@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.7fa01bfa211e6647845a4e43ceba640d.js"
+  "/precache-manifest.690a419a9eaba6cabfb0d6fa90245a14.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "taradio_frontend"});
+workbox.core.setCacheNameDetails({prefix: "taradio"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
