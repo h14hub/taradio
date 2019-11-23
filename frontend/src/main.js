@@ -15,7 +15,7 @@ new Vue({
   mounted() {
     let installPromptEvent;
 
-    window.addEventListener('beforeinstallprompt', (event) => {
+    const evtListener = window.addEventListener('beforeinstallprompt', (event) => {
       // Prevent Chrome <= 67 from automatically showing the prompt
       event.preventDefault();
       // Stash the event so it can be triggered later.
@@ -34,6 +34,7 @@ new Vue({
       installPromptEvent.userChoice.then(() => {
         // Clear the saved prompt since it can't be used again
         installPromptEvent = null;
+        evtListener.removeEventListener();
       });
     });
   },

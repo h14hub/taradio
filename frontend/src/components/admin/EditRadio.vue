@@ -1,6 +1,8 @@
 <template>
   <div class="panel-body">
     <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
+    <input type="file" id="file-input">
+    <p id="status">Please select a file</p>
     <button class="btn" @click="editRadio()"> Mettre a jour la Radio </button>
   </div>
 </template>
@@ -180,7 +182,18 @@ export default {
   },
   mounted() {
     const self = this;
+
+    document.getElementById('file-input').onchange = () => {
+      const { files } = document.getElementById('file-input');
+      const file = files[0];
+      if (file == null) {
+        return alert('No file selected.');
+      }
+      self.getSignedRequest(file);
+    };
     /* eslint no-underscore-dangle: 0 */
+    /* eslint no-alert: 0 */
+    /* eslint consistent-return: 0 */
     axios.get(`https://taradio.herokuapp.com/radios/${this.$route.params.id}`).then((response) => {
       self.model = response.data;
     });
@@ -189,10 +202,36 @@ export default {
     editRadio() {
       const self = this;
       /* eslint no-underscore-dangle: 0 */
-      this.model.published = false;
       axios.put(`https://taradio.herokuapp.com/radios/${this.model._id}`, this.model).then(() => {
         self.$router.push('/admin/radios');
       });
+    },
+    getSignedRequest(file) {
+      const self = this;
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `https://taradio.herokuapp.com/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            self.uploadFile(file, response.signedRequest, response.url);
+          }
+        }
+      };
+      xhr.send();
+    },
+    uploadFile(file, signedRequest, url) {
+      const self = this;
+      const xhr = new XMLHttpRequest();
+      xhr.open('PUT', signedRequest);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            self.model.logoUrl = url;
+          }
+        }
+      };
+      xhr.send(file);
     },
   },
 };
