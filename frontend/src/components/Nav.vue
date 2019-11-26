@@ -156,8 +156,7 @@ export default {
           title: 'Web Fundamentals',
           text: 'Check out Web Fundamentals — it rocks!',
           url: 'https://developers.google.com/web',
-        })
-          .then(() => console.log('Successful share'));
+        });
       }
     },
   },
