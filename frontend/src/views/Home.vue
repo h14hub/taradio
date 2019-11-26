@@ -68,6 +68,11 @@ export default {
               lat: position.coords.latitude,
               lng: position.coords.longitude,
             };
+            self.filters = {
+              ...self.filters,
+              city: '',
+              genre: '',
+            };
           },
         );
       }

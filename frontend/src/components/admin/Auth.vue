@@ -69,7 +69,7 @@ export default {
     background: white;
     input{
       margin: 0.5rem 0;
-      // height: 30px;  
+      // height: 30px;
       border-radius: 3px;
       border-style: solid;
       border-width: 1px;

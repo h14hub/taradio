@@ -53,7 +53,7 @@ export default {
     /* eslint-disable vue/no-async-in-computed-properties */
     /* eslint-disable no-else-return */
     async filteredRadios() {
-      const filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '');
+      const filtered = this.radios.filter(radio => radio.lat !== 0 && radio.lng !== 0 && radio.streamUrl !== '' && radio.published);
       let filteredWithDist = [];
       let filteredWithDistAndStyle = [];
       if (this.filters.city) {
