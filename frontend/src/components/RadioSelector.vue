@@ -133,7 +133,7 @@ export default {
     .downArrow {
       padding: 0.7rem;
       img {
-        width: 35px;
+        width: 22px;
         @media screen and (max-width: 375px) {
           width: 17px;
         }
@@ -152,11 +152,13 @@ export default {
     position: absolute;
     top: calc(25vh + calc(2rem + 1.5rem));
     width: calc(100% - 3rem);
-    max-height: calc(75vh - 5rem);
+    max-height: calc(75vh - 6rem);
     background: $midBlue;
     border-radius: 20px;
     overflow: scroll;
     z-index: 1;
+    max-width: 600px;
+    padding-top: 1rem;
     .radio{
       padding: 0.3rem;
     }

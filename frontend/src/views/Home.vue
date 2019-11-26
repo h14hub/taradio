@@ -1,8 +1,10 @@
 <template>
   <div id="Home" class="page">
-    <Nav :updateLocation="updateLocation" :updateFilters="updateFilters" />
-    <RadioSelector :radios="radios" :location="location" :filters="filters"/>
-    <Radio :radio="radio"/>
+    <div class="page-wrapper">
+      <Nav :updateLocation="updateLocation" :updateFilters="updateFilters" />
+      <RadioSelector :radios="radios" :location="location" :filters="filters"/>
+      <Radio :radio="radio"/>
+    </div>
   </div>
 </template>
 

@@ -27,6 +27,9 @@ body {
   padding: 1.5rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  // display: flex;
+  // justify-content: center;
+  margin: auto;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -66,12 +69,19 @@ h1 {
 }
 p {
   margin: 0;
-  font-size: 17px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 .page {
   max-width: calc(100vw - 3rem);
   max-height: calc(100vh - 3rem);
   overflow: hidden;
+}
+.page-wrapper{
+  max-width: 600px;
+  margin: auto;
 }
 
 .hide {

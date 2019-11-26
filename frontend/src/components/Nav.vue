@@ -222,7 +222,7 @@ export default {
       justify-content: flex-end;
       align-items: center;
       .icon {
-        border-radius: 20px;
+        border-radius: 40px;
         background: $deepBlue;
         margin: 0 0.2rem;
         img {
@@ -258,16 +258,18 @@ export default {
     transform: translateX(calc(100vw - 3.5rem));
   }
   .filter-wrapper{
+    left: 50%;
     padding: 2rem;
     width: calc(100vw - 7rem);
     position: fixed;
     top: calc(10vh + 2.5rem);
-    left: 1.5rem;
     border-radius: 20px;
     transition: 2s ease;
     opacity: 1;
     background: $deepBlue;
     z-index: 3;
+    max-width: calc(600px - 4rem);
+    transform: translate(-50%, 0);
     .wrap{
       padding: 1rem 0;
       width: 100%;

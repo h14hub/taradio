@@ -20,8 +20,10 @@
             <i>{{ '22:30' }}</i>
           </p>
         </div>
-        <img @click="mute()" src="../assets/speaker.svg" alt="">
-        <img @click="play()" src="../assets/play-button.svg" alt="">
+        <img  v-show="muted" @click="mute()" src="../assets/mute.svg" alt="">
+        <img  v-show="!muted" @click="mute()" src="../assets/volume.svg" alt="">
+        <img  v-show="!playing" @click="play()" src="../assets/play-button.svg" alt="">
+        <img  v-show="playing" @click="play()" src="../assets/video-pause-button.svg" alt="">
       </div>
     </div>
     <audio id="audio" ref="player" controls autoplay hidden>
@@ -40,6 +42,7 @@ export default {
   },
   data() {
     return {
+      id: '',
       playing: false,
       muted: false,
     };
@@ -50,7 +53,10 @@ export default {
     });
   },
   updated() {
-    this.play();
+    if (this.$route.params.id !== this.id) {
+      this.id = this.$route.params.id;
+      this.play();
+    }
   },
   methods: {
     play() {
@@ -80,9 +86,9 @@ export default {
   display: none;
 }
 #Radio{
-  height: calc(75vh - calc(1rem + 3rem));
+  height: calc(75vh - calc(1rem + 2rem));
   .radio_wrapper{
-    padding-top: 3rem;
+    padding-top: 2rem;
     height: calc(100% - 3rem);
     display: flex;
     flex-direction: column;

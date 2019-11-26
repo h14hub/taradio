@@ -14,7 +14,6 @@ new Vue({
   render: h => h(App),
   mounted() {
     let installPromptEvent;
-
     const evtListener = window.addEventListener('beforeinstallprompt', (event) => {
       // Prevent Chrome <= 67 from automatically showing the prompt
       event.preventDefault();
@@ -29,13 +28,15 @@ new Vue({
       // Update the install UI to remove the install button
       // document.querySelector('#install-button').classList.remove('hidden');
       // Show the modal add to home screen dialog
-      installPromptEvent.prompt();
-      // Wait for the user to respond to the prompt
-      installPromptEvent.userChoice.then(() => {
-        // Clear the saved prompt since it can't be used again
-        installPromptEvent = null;
-        evtListener.removeEventListener();
-      });
+      if (evtListener && installPromptEvent) {
+        installPromptEvent.prompt();
+        // Wait for the user to respond to the prompt
+        installPromptEvent.userChoice.then(() => {
+          // Clear the saved prompt since it can't be used again
+          installPromptEvent = null;
+          evtListener.removeEventListener();
+        });
+      }
     });
   },
 }).$mount('#app');
