@@ -17,7 +17,7 @@
         <img src="../assets/radio2.png" alt="">
         <div class="text_wrapper">
           <p>
-            <i>{{ '22:30' }}</i>
+            <i>{{`${now.getHours()}:${now.getMinutes()}`}}</i>
           </p>
         </div>
         <img  v-show="muted" @click="mute()" src="../assets/mute.svg" alt="">
@@ -45,7 +45,11 @@ export default {
       id: '',
       playing: false,
       muted: false,
+      now: new Date(),
     };
+  },
+  created() {
+    setInterval(() => { this.now = new Date(); }, 1000);
   },
   mounted() {
     this.$watch('radio.streamUrl', () => {

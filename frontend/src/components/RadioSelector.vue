@@ -18,6 +18,7 @@
         class="radio"
         @click="goToAndHide(radio._id)"
       >
+        <img src="../assets/radio2.png" alt="" style="width:13px;">
         {{ radio.name }}
       </div>
     </div>
@@ -161,6 +162,11 @@ export default {
     padding-top: 1rem;
     .radio{
       padding: 0.3rem;
+      text-align: left;
+      margin-left: 4rem;
+      img{
+        margin-right: 1rem;
+      }
     }
   }
 }
