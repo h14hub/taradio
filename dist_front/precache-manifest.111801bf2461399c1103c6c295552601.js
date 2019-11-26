@@ -8,11 +8,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/android-chrome-512x512.png"
   },
   {
-    "revision": "a4dd28bc9753a72acc17",
-    "url": "/css/app.78afde92.css"
+    "revision": "239166bf4abcad49b321",
+    "url": "/css/app.430a009d.css"
   },
   {
-    "revision": "e8c88762823eda8e74ba",
+    "revision": "7dcb31b5ecc8376e4ca8",
     "url": "/css/chunk-vendors.7ee3845a.css"
   },
   {
@@ -52,6 +52,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/menu.bd4b912e.svg"
   },
   {
+    "revision": "24cc4523cbd8b3de50c73aa60cce1879",
+    "url": "/img/mute.24cc4523.svg"
+  },
+  {
     "revision": "a50a545b6662e336151e8f31d79df8f5",
     "url": "/img/play-button.a50a545b.svg"
   },
@@ -60,15 +64,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/radio2.2818704e.png"
   },
   {
+    "revision": "163c40cafe55af62e031e032cadddcb9",
+    "url": "/img/radio_blk.163c40ca.svg"
+  },
+  {
     "revision": "3177a9524926e77540352505a3634696",
     "url": "/img/share.3177a952.svg"
   },
   {
-    "revision": "1fd5e10d0db43f35bf3d5c36c0eed86e",
-    "url": "/img/speaker.1fd5e10d.svg"
+    "revision": "09a01af32e2b62c91900d39ce2d3be57",
+    "url": "/img/video-pause-button.09a01af3.svg"
   },
   {
-    "revision": "b6105baf8b00d25c3ebaa304fdbff6c1",
+    "revision": "6cf39c4597464e570ec739c714380927",
+    "url": "/img/volume.6cf39c45.svg"
+  },
+  {
+    "revision": "5ce2480cfbcab2534904e6fc4f258efe",
     "url": "/index.html"
   },
   {
@@ -76,12 +88,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.eaf348d4.js"
   },
   {
-    "revision": "a4dd28bc9753a72acc17",
-    "url": "/js/app.a9884bda.js"
+    "revision": "239166bf4abcad49b321",
+    "url": "/js/app.5ed99567.js"
   },
   {
-    "revision": "e8c88762823eda8e74ba",
-    "url": "/js/chunk-vendors.d16e3556.js"
+    "revision": "7dcb31b5ecc8376e4ca8",
+    "url": "/js/chunk-vendors.2f12f46e.js"
   },
   {
     "revision": "09879c9a8609ba06da3d17025f9cf691",
