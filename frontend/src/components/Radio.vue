@@ -93,7 +93,7 @@ export default {
   height: calc(75vh - calc(1rem + 2rem));
   .radio_wrapper{
     padding-top: 2rem;
-    height: calc(100% - 3rem);
+    height: calc(100%);
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,13 +1,24 @@
 <template>
   <div id="App">
     <transition name="fade" mode="in-out">
-      <router-view />
+      <router-view :updateUser="updateUser"/>
     </transition>
   </div>
 </template>
 
 <script>
-
+export default {
+  data() {
+    return {
+      user: JSON.parse(localStorage.getItem('user')) || {},
+    };
+  },
+  methods: {
+    updateUser(u) {
+      this.user = u;
+    },
+  },
+};
 </script>
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Chivo:300,400,700,900&display=swap");
@@ -30,6 +41,7 @@ body {
   // display: flex;
   // justify-content: center;
   margin: auto;
+  height: 100vh;
 }
 .fade-enter-active,
 .fade-leave-active {

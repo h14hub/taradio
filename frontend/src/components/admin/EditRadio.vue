@@ -1,5 +1,5 @@
 <template>
-  <div class="panel-body">
+  <div id="Edit" class="panel-body">
     <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
     <input type="file" id="file-input">
     <p id="status">Please select a file</p>
@@ -27,7 +27,7 @@ export default {
         zipCode: '',
         city: '',
         siteUrl: '',
-        published: Boolean,
+        published: true,
         logoUrl: '',
         streamUrl: '',
         diffusionArea: '',
@@ -180,6 +180,11 @@ export default {
       },
     };
   },
+  created() {
+    if (!this.$parent.user.name || !this.$parent.user.password) {
+      this.$router.replace('/admin');
+    }
+  },
   mounted() {
     const self = this;
 
@@ -236,3 +241,12 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+#Edit{
+  position: relative;
+  top: -1.5rem;
+  left: -1.5rem;
+  width: 100vw;
+  min-height: 100vh;
+}
+</style>

@@ -5,7 +5,7 @@
         <img src="../assets/Logo-Tara-Home.png" alt="logo Taradio" />
       </div>
       <div class="nav-buttons">
-        <div class="icon">
+        <div class="icon" @click="share">
           <img src="../assets/share.svg" alt="logo Taradio" />
         </div>
         <div class="icon" @click="showFilter=!showFilter">
@@ -82,7 +82,7 @@
     </p>
     </div>
     <div :class=" showFilter? 'filter-wrapper wrap':'filter-wrapper wrap faded'">
-      <label for=""> Distance </label>
+      <label for=""> Distance (Km) </label>
       <div class="slidecontainer">
         <span>0</span>
         <input
@@ -90,16 +90,17 @@
           min="1"
           max="100"
           value="80"
-          class="slider"
+          class="slider form-control"
           id="myRange"
           v-model.number="filters.distance"
           @change="updateFilters(filters)"
         >
-        <span>100</span>
+        <span>{{filters.distance}}</span>
       </div>
       <div class="wrap">
         <label for=""> Ville </label>
         <input
+          class="form-control"
           type="text"
           style="width: 100%;"
           v-model="filters.city"
@@ -109,6 +110,7 @@
       <div class="wrap">
         <label for=""> Genre Musical </label>
         <select
+          class="form-control"
           style="width: 100%;"
           v-model="filters.genre"
           @keyup="updateFilters(filters)"
@@ -141,11 +143,23 @@ export default {
         city: '',
         genre: '',
       },
-      genres: ['Blues Soul', 'Blues', 'Soul', 'Groove Funk', 'Classique', 'Opéra', 'Piano', 'Communautaire', 'Bouddhisme', 'Campus Collège', 'Chrétien', 'Communautaire', 'Gay', 'Islam', 'Judaisme', 'Dance DJ', 'Dancefloor', 'DJ Mix', 'Top 50', 'Decades', 'Adulte contemporain', 'Disco', 'Oldies', 'Variétés', 'Vintage', 'Electro', 'Drum and bass', 'Electro Hard rave', 'Electro House', 'Electro Techno', 'Electro Trance', 'Electro varié', 'Hardcore', 'Independant', 'Gothique', 'Indie Alternative', 'Underground', 'Info Eco Sport', 'Economie', 'Informations', 'Meteo', 'Police Scanner', 'Sport', 'Jazz', 'Latino', 'Latino bachata', 'Latino Baladas', 'Latino cumbia', 'Latino Merengue', 'Latino Salsa', 'Latino Soca', 'Latino Tango', 'Latino Tropicale', 'Latino varié', 'Latino Zouk', 'Lounge Zen', 'Easy listening', 'Lounge ambient', 'New age', 'Zen Nature Spirituel', 'Pop', 'Reggae', 'Dubstep', 'Reggae Dancehall', 'Reggaeton Ragga', 'Rock', 'Hard rock', 'Metal', 'Rock', 'Rock alternatif', 'RocknRoll Swing', 'Thematic', 'Acoustic guitare', 'Culturel', 'Electro varié', 'Enfants', 'Gospel', 'Humour', 'Jeux Games', 'Live', 'Love', 'Noel Celebration', 'Progressive', 'Talk', 'Tribute', 'Vocal', 'Urban', 'Breakbeat', 'Rap', 'RnB', 'Urban', 'Various', 'Généraliste', 'Variés Various', 'World', 'Africain', 'Americana', 'Asiatique Asian', 'Autres pays World', 'Brésilien Samba', 'Celtique', 'Chanson Française', 'Europe', 'Flamenco', 'Grec Greek', 'Indien', 'Irlandais Irish', 'Italien', 'Manele', 'Mexicain', 'Oriental', 'Polka Tchéque', 'Russe Russian', 'Turc', 'Western', 'ZabavnaNarodna', 'Country', 'Bluegrass', 'Country', 'Country Blues', 'Country Pop', 'Country Rock'],
+      genres: ['', 'Blues Soul', 'Blues', 'Soul', 'Groove Funk', 'Classique', 'Opéra', 'Piano', 'Communautaire', 'Bouddhisme', 'Campus Collège', 'Chrétien', 'Communautaire', 'Gay', 'Islam', 'Judaisme', 'Dance DJ', 'Dancefloor', 'DJ Mix', 'Top 50', 'Decades', 'Adulte contemporain', 'Disco', 'Oldies', 'Variétés', 'Vintage', 'Electro', 'Drum and bass', 'Electro Hard rave', 'Electro House', 'Electro Techno', 'Electro Trance', 'Electro varié', 'Hardcore', 'Independant', 'Gothique', 'Indie Alternative', 'Underground', 'Info Eco Sport', 'Economie', 'Informations', 'Meteo', 'Police Scanner', 'Sport', 'Jazz', 'Latino', 'Latino bachata', 'Latino Baladas', 'Latino cumbia', 'Latino Merengue', 'Latino Salsa', 'Latino Soca', 'Latino Tango', 'Latino Tropicale', 'Latino varié', 'Latino Zouk', 'Lounge Zen', 'Easy listening', 'Lounge ambient', 'New age', 'Zen Nature Spirituel', 'Pop', 'Reggae', 'Dubstep', 'Reggae Dancehall', 'Reggaeton Ragga', 'Rock', 'Hard rock', 'Metal', 'Rock', 'Rock alternatif', 'RocknRoll Swing', 'Thematic', 'Acoustic guitare', 'Culturel', 'Electro varié', 'Enfants', 'Gospel', 'Humour', 'Jeux Games', 'Live', 'Love', 'Noel Celebration', 'Progressive', 'Talk', 'Tribute', 'Vocal', 'Urban', 'Breakbeat', 'Rap', 'RnB', 'Urban', 'Various', 'Généraliste', 'Variés Various', 'World', 'Africain', 'Americana', 'Asiatique Asian', 'Autres pays World', 'Brésilien Samba', 'Celtique', 'Chanson Française', 'Europe', 'Flamenco', 'Grec Greek', 'Indien', 'Irlandais Irish', 'Italien', 'Manele', 'Mexicain', 'Oriental', 'Polka Tchéque', 'Russe Russian', 'Turc', 'Western', 'ZabavnaNarodna', 'Country', 'Bluegrass', 'Country', 'Country Blues', 'Country Pop', 'Country Rock'],
     };
   },
   mounted() {
     this.filters.distance = 80;
+  },
+  methods: {
+    share() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Web Fundamentals',
+          text: 'Check out Web Fundamentals — it rocks!',
+          url: 'https://developers.google.com/web',
+        })
+          .then(() => console.log('Successful share'));
+      }
+    },
   },
 };
 </script>
@@ -225,10 +239,11 @@ export default {
         border-radius: 40px;
         background: $deepBlue;
         margin: 0 0.2rem;
+        padding: 0.7rem;
+        display: flex;
         img {
           width: 22px;
           height: 22px;
-          padding: 0.7rem;
           @media screen and (max-width: 375px ){
             width: 12px;
             height: 12px;
@@ -260,22 +275,21 @@ export default {
   .filter-wrapper{
     left: 50%;
     padding: 2rem;
-    width: calc(100vw - 7rem);
+    width: calc(100% - 3rem);
     position: fixed;
-    top: calc(10vh + 2.5rem);
+    top: calc(10vh + 1.5rem);
     border-radius: 20px;
     transition: 2s ease;
     opacity: 1;
     background: $deepBlue;
     z-index: 3;
-    max-width: calc(600px - 4rem);
+    max-width: calc(600px);
     transform: translate(-50%, 0);
     .wrap{
       padding: 1rem 0;
       width: 100%;
       select{
         width: 100%;
-        height: 28px;
       }
     }
   }
