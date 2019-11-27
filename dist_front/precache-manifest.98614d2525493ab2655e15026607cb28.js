@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/android-chrome-512x512.png"
   },
   {
-    "revision": "402679d45e36a6fec48e",
-    "url": "/css/app.ef787ef2.css"
+    "revision": "2ac17d0e185ba2178019",
+    "url": "/css/app.63d5e279.css"
   },
   {
     "revision": "62832582ef3b5027881f",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/equalizer.367fea45.svg"
   },
   {
-    "revision": "5533f33f04ebabdfa5575c38875777b9",
-    "url": "/img/loc.5533f33f.png"
+    "revision": "381d201791d45191843f65f46225da23",
+    "url": "/img/loc.381d2017.svg"
   },
   {
     "revision": "bd4b912e04eee6272a5b253929c3f19a",
@@ -80,7 +80,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/volume.6cf39c45.svg"
   },
   {
-    "revision": "e02dab9976e4d6ac9abc7e123c842c91",
+    "revision": "9fe0ef135ed6cdf658017f60c9d53d90",
     "url": "/index.html"
   },
   {
@@ -88,15 +88,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.eaf348d4.js"
   },
   {
-    "revision": "402679d45e36a6fec48e",
-    "url": "/js/app.a9aa60d8.js"
+    "revision": "2ac17d0e185ba2178019",
+    "url": "/js/app.18002851.js"
   },
   {
     "revision": "62832582ef3b5027881f",
     "url": "/js/chunk-vendors.1616e298.js"
   },
   {
-    "revision": "09879c9a8609ba06da3d17025f9cf691",
+    "revision": "ece86d117420c20e456fac300e4aa24c",
     "url": "/manifest.json"
   },
   {
