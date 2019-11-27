@@ -17,7 +17,7 @@
         <img src="../assets/radio2.png" alt="">
         <div class="text_wrapper">
           <p>
-            <i>{{`${now.getHours()
+            <i>{{!playing ? '0' :`${now.getHours()
                - start.getHours()}:${now.getMinutes()
                - start.getMinutes()}:${now.getSeconds()-start.getSeconds()}`}}</i>
           </p>

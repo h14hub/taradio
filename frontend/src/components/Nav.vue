@@ -266,10 +266,10 @@ export default {
     border-radius:20px 0 0 20px;
     right: 0;
     top: calc(10vh + 1.5rem);
-    width: calc(100vw - 6.5rem);
+    width: calc(100vw - 5.5rem);
     height: calc(90vh - 3rem);
     background: $white;
-    transition: 2s ease;
+    transition: 1s ease;
     z-index: 5;
     overflow-x: hidden;
     overflow-y: scroll;
