@@ -1,11 +1,11 @@
-require('dotenv').config()
-
 import Vue from 'vue';
 import AsyncComputed from 'vue-async-computed';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
+
+require('dotenv').config();
 
 Vue.config.productionTip = false;
 Vue.use(AsyncComputed);
