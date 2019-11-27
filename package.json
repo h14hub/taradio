@@ -11,11 +11,10 @@
     "npm": ">=3.10.0"
   },
   "scripts": {
-    "prestart": "cd frontend; yarn; yarn run build;cd ..; mv frontend/dist ./dist-front",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
-    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
+    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist && cd frontend && yarn && yarn run build && cd .. && mv frontend/dist ./dist-front",
     "test": "jest --watch",
     "lint": "esw -w src test"
   },
