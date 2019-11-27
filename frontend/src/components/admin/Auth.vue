@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     signIn() {
-      if (this.user.name === 'taradio' && this.user.password === 'strongPassword') {
+      if (this.user.name === process.env.USERNAME && this.user.password === process.env.PASSWORD) {
         this.$attrs.updateUser(this.user);
         localStorage.setItem('user', JSON.stringify(this.user));
         this.$router.replace('/admin/radios');
