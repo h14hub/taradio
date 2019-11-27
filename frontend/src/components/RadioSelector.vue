@@ -5,7 +5,7 @@
         <img src="../assets/down-arrow.svg" alt="" />
       </div>
       <div class="selector-label">
-        Hey! Pour écouter, sélectionne Ta Radio !
+        Hey ! Pour écouter, sélectionne Ta Radio !
       </div>
       <div class="downArrow">
         <img src="../assets/down-arrow.svg" alt="" />
@@ -143,7 +143,7 @@ export default {
     .selector-label {
       flex-grow: 1;
       color: white;
-      font-size: 24px;
+      font-size: 21px;
       @media screen and (max-width: 375px) {
         font-size: 17px;
       }
@@ -152,7 +152,7 @@ export default {
   .radioSelector-hidden {
     position: absolute;
     top: calc(25vh + calc(2rem + 1.5rem));
-    width: calc(100% - 3rem);
+    width: calc(100% - 2.5rem);
     max-height: calc(75vh - 6rem);
     background: $midBlue;
     border-radius: 20px;

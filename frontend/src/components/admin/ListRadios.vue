@@ -118,7 +118,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       border-radius: 20px;
-      min-height: 50px;
+      min-height: 90px;
       &:nth-child(2n){
         background: #DDDDDD;
       }

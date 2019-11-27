@@ -21,65 +21,70 @@
     </div>
     <div :class=" showMenu? 'menu-wrapper':'menu-wrapper translated'">
       <h3>PRESENTATION</h3>
-      <p>
-        La CNRA, Soutenir, Développer, Favoriser et Échanger.
+      <div>
+        <p>La CNRA, Soutenir, Développer, Favoriser et Échanger.</p>
+        <p>
+          Depuis sa création en 1991, conformément à ses statuts, notre confédération
+          regroupe, avec le soutien des fédérations, l’ensemble des radios associatives de
+          toutes sensibilités, obédiences, confessions ou courants.
+          La CNRA n’impose pas de modèle, les radios éligibles aux aides de l’Etat (FSER -
+          Fonds de Soutien à l’Expression Radiophonique) peuvent y adhérer dès lors qu’elles
+          respectent un fonctionnement démocratique et non commercial. Seules « ne peuvent
+          être membres de la CNRA, les radios ou fédérations qui prônent l’exclusion, la haine
+          et le racisme ».
+        </p>
+        <p>
+          Avec des dirigeants assumant des responsabilités bénévoles ou salariées dans leurs
+          radios, c’est dans la transparence et à l’écoute de la différence que la CNRA a oeuvré
+          pour représenter aujourd’hui près de 230 radios représentées au sein de 12 fédérations
+          régionales et nationales, implantées dans plus de 80 départements français. C’est
+          aussi plus de 25.000 bénévoles et 2.100 emplois salariés.
+          La CNRA est aujourd’hui reconnue comme étant un interlocuteur
+          incontournable auprès des plus grandes institutions.
+        </p>
+        <div>
+          <p>+25 000 Bénévoles</p>
+          <p>+ 02 100 Emplois</p>
+          <p>+ 230 Radios</p>
+          <p>+ 80 Départements</p>
+          <p>+ 12 Fédérations</p>
+        </div>
+        <p>
+          Nos auditeurs :
+          Selon la source Médiamétrie en Novembre et Décembre 2018 :
 
-        Depuis sa création en 1991, conformément à ses statuts, notre confédération
-        regroupe, avec le soutien des fédérations, l’ensemble des radios associatives de
-        toutes sensibilités, obédiences, confessions ou courants.
-        La CNRA n’impose pas de modèle, les radios éligibles aux aides de l’Etat (FSER -
-        Fonds de Soutien à l’Expression Radiophonique) peuvent y adhérer dès lors qu’elles
-        respectent un fonctionnement démocratique et non commercial. Seules « ne peuvent
-        être membres de la CNRA, les radios ou fédérations qui prônent l’exclusion, la haine
-        et le racisme ».
+          - Audience cumulée : 2.1% soit 1 165 000 auditeurs (567 stations)
+          - Part d'audience : 1,6% - Durée d'écoute moyenne 1H42
+          Cette tendance se confirme d’année en année et nous conforte
+          dans le paysage audiovisuel français.
 
-        Avec des dirigeants assumant des responsabilités bénévoles ou salariées dans leurs
-        radios, c’est dans la transparence et à l’écoute de la différence que la CNRA a oeuvré
-        pour représenter aujourd’hui près de 230 radios représentées au sein de 12 fédérations
-        régionales et nationales, implantées dans plus de 80 départements français. C’est
-        aussi plus de 25.000 bénévoles et 2.100 emplois salariés.
-        La CNRA est aujourd’hui reconnue comme étant un interlocuteur
-        incontournable auprès des plus grandes institutions.
-
-        +25 000 Bénévoles
-        + 02 100 Emplois
-        + 230 Radios
-        + 80 Départements
-        + 12 Fédérations
-
-
-        Nos auditeurs :
-        Selon la source Médiamétrie en Novembre et Décembre 2018 :
-
-        - Audience cumulée : 2.1% soit 1 165 000 auditeurs (567 stations)
-        - Part d'audience : 1,6% - Durée d'écoute moyenne 1H42
-        Cette tendance se confirme d’année en année et nous conforte
-        dans le paysage audiovisuel français.
-
-        Parmi les fédérations régionales et nationales adhérentes :
-        ARRA : Assemblée Régionale des Radios Associatives // Occitanie – Pyrénées Méditerranée
-        CRAL : Coordination des Radios associatives de Lorraine
-        FRALA : Fédération des Radios Associatives du Limousin en Aquitaine
-        FFRC : Fédération Française des Radios Chrétiennes
-        FRAMA : Fédération Régionale des Radios Associatives Maine Anjou
-        FARA : Fédération Alsacienne des Radios Associatives
-        FRADIF : Fédération des Radios Associatives d’Ile de France
-        FRANC-CP : Fédération Régionale des Radios Associatives Non Commerciales Charente-Poitou
-        HAUTS DE FRANCE : Fédération des Radios Associatives du Nord de la France
-        AURA FM : Fédération Régionale des Radios Auvergne Rhône-Alpes
-        FRAD’AUV : Fédération des Radios Associatives d’Auvergne
-        FRAN : Fédération des Radios Associatives de Normandie
-
-        Contact :
-
-        Vous avez besoin de joindre la Confédération Nationale des Radios Associatives,
-        ou vous souhaitez rejoindre le projet Taradio, vous pouvez nous contacter :
-        Courrier :
-        C/O RADIO ALPA
-        MJC Jacques Prévert
-        97 Grande Rue, 72 000 LE MANS
-        Courriel : president@cnra.fr
-    </p>
+          Parmi les fédérations régionales et nationales adhérentes :<br/>
+          ARRA : Assemblée Régionale des Radios Associatives //
+           Occitanie – Pyrénées Méditerranée<br/>
+          CRAL : Coordination des Radios associatives de Lorraine<br/>
+          FRALA : Fédération des Radios Associatives du Limousin en Aquitaine<br/>
+          FFRC : Fédération Française des Radios Chrétiennes<br/>
+          FRAMA : Fédération Régionale des Radios Associatives Maine Anjou<br/>
+          FARA : Fédération Alsacienne des Radios Associatives<br/>
+          FRADIF : Fédération des Radios Associatives d’Ile de France<br/>
+          FRANC-CP : Fédération Régionale des Radios Associatives
+           Non Commerciales Charente-Poitou<br/>
+          HAUTS DE FRANCE : Fédération des Radios Associatives du Nord de la France<br/>
+          AURA FM : Fédération Régionale des Radios Auvergne Rhône-Alpes<br/>
+          FRAD’AUV : Fédération des Radios Associatives d’Auvergne<br/>
+          FRAN : Fédération des Radios Associatives de Normandie<br/>
+        </p>
+        <p>
+          Contact :<br/>
+          Vous avez besoin de joindre la Confédération Nationale des Radios Associatives,<br/>
+          ou vous souhaitez rejoindre le projet Taradio, vous pouvez nous contacter :<br/>
+          Courrier :<br/>
+          C/O RADIO ALPA<br/>
+          MJC Jacques Prévert<br/>
+          97 Grande Rue, 72 000 LE MANS<br/>
+          Courriel : president@cnra.fr<br/>
+        </p>
+    </div>
     </div>
     <div :class=" showFilter? 'filter-wrapper wrap':'filter-wrapper wrap faded'">
       <label for=""> Distance (Km) </label>
@@ -256,9 +261,9 @@ export default {
     position: fixed;
     border-radius:20px 0 0 20px;
     right: 0;
-    top: calc(10vh + 2.5rem);
+    top: calc(10vh + 1.5rem);
     width: calc(100vw - 6.5rem);
-    height: calc(90vh - 4rem);
+    height: calc(90vh - 3rem);
     background: $white;
     transition: 2s ease;
     z-index: 5;

@@ -13,6 +13,7 @@
   background: $deepBlue;
   height: 23vh;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0 1rem;
 }

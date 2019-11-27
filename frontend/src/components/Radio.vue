@@ -116,7 +116,6 @@ export default {
         background-image: unset;
       }
       img{
-        width: 35%;
         height: 35%;
         border-radius: 20px;
       }
