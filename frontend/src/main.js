@@ -31,7 +31,6 @@ new Vue({
         installPromptEvent.userChoice.then(() => {
           // Clear the saved prompt since it can't be used again
           installPromptEvent = null;
-          evtListener = null;
           window.removeEventListener('beforeinstallprompt');
         });
       }
