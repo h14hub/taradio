@@ -1,18 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2b95ce5ffef34d3429833780e7857b9",
-    "url": "/android-chrome-192x192.png"
+    "revision": "4206e32ce02edc128904",
+    "url": "/css/app.0d6b7e32.css"
   },
   {
-    "revision": "49bc0630be620bbe470447a7ac908f5b",
-    "url": "/android-chrome-512x512.png"
-  },
-  {
-    "revision": "7f40a33945fa8bad00d8",
-    "url": "/css/app.75eaa7d2.css"
-  },
-  {
-    "revision": "62832582ef3b5027881f",
+    "revision": "b4d5de266647a5618075",
     "url": "/css/chunk-vendors.7ee3845a.css"
   },
   {
@@ -80,7 +72,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/volume.6cf39c45.svg"
   },
   {
-    "revision": "2ca2980cad367bf03b9d2ca0ca85de40",
+    "revision": "7ca32110f6fa109210317222c099faa3",
     "url": "/index.html"
   },
   {
@@ -88,12 +80,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.eaf348d4.js"
   },
   {
-    "revision": "7f40a33945fa8bad00d8",
-    "url": "/js/app.54895acc.js"
+    "revision": "4206e32ce02edc128904",
+    "url": "/js/app.7727541b.js"
   },
   {
-    "revision": "62832582ef3b5027881f",
-    "url": "/js/chunk-vendors.1616e298.js"
+    "revision": "b4d5de266647a5618075",
+    "url": "/js/chunk-vendors.83bff8b4.js"
   },
   {
     "revision": "ece86d117420c20e456fac300e4aa24c",
