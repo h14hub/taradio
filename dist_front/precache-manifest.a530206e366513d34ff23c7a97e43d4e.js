@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/android-chrome-512x512.png"
   },
   {
-    "revision": "2ac17d0e185ba2178019",
-    "url": "/css/app.63d5e279.css"
+    "revision": "7f40a33945fa8bad00d8",
+    "url": "/css/app.75eaa7d2.css"
   },
   {
     "revision": "62832582ef3b5027881f",
@@ -80,7 +80,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/volume.6cf39c45.svg"
   },
   {
-    "revision": "9fe0ef135ed6cdf658017f60c9d53d90",
+    "revision": "2ca2980cad367bf03b9d2ca0ca85de40",
     "url": "/index.html"
   },
   {
@@ -88,8 +88,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/js/about.eaf348d4.js"
   },
   {
-    "revision": "2ac17d0e185ba2178019",
-    "url": "/js/app.18002851.js"
+    "revision": "7f40a33945fa8bad00d8",
+    "url": "/js/app.54895acc.js"
   },
   {
     "revision": "62832582ef3b5027881f",

@@ -271,7 +271,8 @@ export default {
     background: $white;
     transition: 2s ease;
     z-index: 5;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     h3{
       padding: 2rem 0 0 0;
     }
