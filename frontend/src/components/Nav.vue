@@ -5,16 +5,16 @@
         <img src="../assets/Logo-Tara-Home.png" alt="logo Taradio" />
       </div>
       <div class="nav-buttons">
-        <div class="icon" @click="share">
+        <div class="icon bttn-pill bttn-md bttn-primary" @click="share">
           <img src="../assets/share.svg" alt="logo Taradio" />
         </div>
-        <div class="icon" @click="showFilter=!showFilter">
+        <div class="icon bttn-pill bttn-md bttn-primary" @click="showFilter=!showFilter">
           <img src="../assets/equalizer.svg" alt="logo Taradio" />
         </div>
-        <div class="icon" @click="updateLocation()">
-          <img src="../assets/loc.png" alt="logo Taradio" />
+        <div class="icon bttn-pill bttn-md bttn-primary" @click="updateLocation()">
+          <img src="../assets/loc.svg" alt="logo Taradio" />
         </div>
-        <div class="icon" @click="showMenu=!showMenu">
+        <div class="icon bttn-pill bttn-md bttn-primary" @click="showMenu=!showMenu">
           <img src="../assets/menu.svg" alt="logo Taradio" />
         </div>
       </div>
@@ -42,13 +42,13 @@
           La CNRA est aujourd’hui reconnue comme étant un interlocuteur
           incontournable auprès des plus grandes institutions.
         </p>
-        <div>
-          <p>+25 000 Bénévoles</p>
-          <p>+ 02 100 Emplois</p>
-          <p>+ 230 Radios</p>
-          <p>+ 80 Départements</p>
-          <p>+ 12 Fédérations</p>
-        </div>
+        <p>
+          +25 000 Bénévoles<br/>
+          + 02 100 Eois<br/>
+          + 230 Radios<br/>
+          + 80 Drtements<br/>
+          + 12 Fédérations<br/>
+        </p>
         <p>
           Nos auditeurs :
           Selon la source Médiamétrie en Novembre et Décembre 2018 :
@@ -99,6 +99,7 @@
           id="myRange"
           v-model.number="filters.distance"
           @change="updateFilters(filters)"
+          v-on:change="showFilter=false"
         >
         <span>{{filters.distance}}</span>
       </div>
@@ -110,6 +111,7 @@
           style="width: 100%;"
           v-model="filters.city"
           @keyup="updateFilters(filters)"
+          v-on:keyup.enter="showFilter=false"
         >
       </div>
       <div class="wrap">
@@ -119,6 +121,7 @@
           style="width: 100%;"
           v-model="filters.genre"
           @keyup="updateFilters(filters)"
+          v-on:change="showFilter=false"
         >
           <option v-for="(genre, index) in genres" :key="`${genre}${index}`">{{genre}}</option>
         </select>
@@ -239,6 +242,7 @@ export default {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      height: 110%;
       .icon {
         border-radius: 40px;
         background: $deepBlue;
@@ -268,9 +272,13 @@ export default {
     transition: 2s ease;
     z-index: 5;
     overflow-x: scroll;
+    h3{
+      padding: 2rem 0 0 0;
+    }
     p, h3{
-      color: black;
+      color: #333333;
       text-align: left;
+      margin-bottom: 1rem;
     }
   }
   .translated{

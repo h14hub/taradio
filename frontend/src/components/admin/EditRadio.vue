@@ -1,9 +1,18 @@
 <template>
-  <div id="Edit" class="panel-body">
-    <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
-    <input type="file" id="file-input">
-    <p id="status">Please select a file</p>
-    <button class="btn" @click="editRadio()"> Mettre a jour la Radio </button>
+  <div id="Edit">
+    <AdminHeader/>
+    <div class="admin-content">
+      <vue-form-generator
+        class="vue-form"
+        :schema="schema"
+        :model="model"
+        :options="formOptions"/>
+      <input type="file" id="file-input">
+      <p id="status">Please select a file</p>
+      <button
+        class="btn bttn-pill bttn-md"
+        @click="editRadio()"> Mettre a jour la Radio </button>
+    </div>
   </div>
 </template>
 
@@ -13,9 +22,12 @@ import VueFormGenerator from 'vue-form-generator';
 import axios from 'axios';
 import 'vue-form-generator/dist/vfg.css';
 
+import AdminHeader from './Header.vue';
+
 Vue.use(VueFormGenerator);
 
 export default {
+  components: { AdminHeader },
   data() {
     return {
       model: {
@@ -248,5 +260,15 @@ export default {
   left: -1.5rem;
   width: 100vw;
   min-height: 100vh;
+  .btn{
+    background: #262f61;
+    color: white;
+    padding: 1rem 2rem;
+  }
+}
+.vue-form{
+  max-width: 500px;
+  color: #333333;
+  margin: auto;
 }
 </style>

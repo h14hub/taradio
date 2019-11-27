@@ -17,7 +17,9 @@
         <img src="../assets/radio2.png" alt="">
         <div class="text_wrapper">
           <p>
-            <i>{{`${now.getHours()}:${now.getMinutes()}`}}</i>
+            <i>{{`${now.getHours()
+               - start.getHours()}:${now.getMinutes()
+               - start.getMinutes()}:${now.getSeconds()-start.getSeconds()}`}}</i>
           </p>
         </div>
         <img  v-show="muted" @click="mute()" src="../assets/mute.svg" alt="">
@@ -46,10 +48,11 @@ export default {
       playing: false,
       muted: false,
       now: new Date(),
+      start: new Date(),
     };
   },
   created() {
-    setInterval(() => { this.now = new Date(); }, 1000);
+    setInterval(() => { if (this.playing) { this.now = new Date(); } }, 1000);
   },
   mounted() {
     this.$watch('radio.streamUrl', () => {
@@ -66,6 +69,7 @@ export default {
     play() {
       this.playing = !this.playing;
       if (this.playing) {
+        this.start = new Date();
         this.$refs.player.play();
       } else {
         this.$refs.player.pause();

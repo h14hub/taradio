@@ -1,9 +1,18 @@
 <template>
-  <div id="Create" class="panel-body">
-    <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
-    <input type="file" id="file-input">
-    <p id="status">Please select a file</p>
-    <button class="btn" @click="createRadio()"> Creer la Radio </button>
+  <div id="Create">
+    <AdminHeader/>
+    <div class="admin-content">
+      <vue-form-generator
+        class="vue-form"
+        :schema="schema"
+        :model="model"
+        :options="formOptions"/>
+      <input type="file" id="file-input">
+      <p id="status">Please select a file</p>
+      <button
+       class="btn bttn-pill bttn-md"
+       @click="createRadio()"> Creer la Radio </button>
+    </div>
   </div>
 </template>
 
@@ -231,5 +240,10 @@ export default {
   left: -1.5rem;
   width: 100vw;
   min-height: 100vh;
+  .btn{
+    background: #262f61;
+    color: white;
+    padding: 1rem 2rem;
+  }
 }
 </style>
