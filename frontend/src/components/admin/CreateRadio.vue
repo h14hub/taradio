@@ -22,9 +22,12 @@ import VueFormGenerator from 'vue-form-generator';
 import axios from 'axios';
 import 'vue-form-generator/dist/vfg.css';
 
+import AdminHeader from './Header.vue';
+
 Vue.use(VueFormGenerator);
 
 export default {
+  components: { AdminHeader },
   data() {
     return {
       model: {
