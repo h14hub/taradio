@@ -16,7 +16,6 @@ import Nav from '@/components/Nav.vue';
 import RadioSelector from '@/components/RadioSelector.vue';
 import Radio from '@/components/Radio.vue';
 
-
 export default {
   name: 'Home',
   components: {
@@ -26,6 +25,7 @@ export default {
   },
   data() {
     return {
+      API_URI: process.env.VUE_APP_API_URI,
       radios: [],
       location: {
         lat: 0,
@@ -82,7 +82,7 @@ export default {
     },
     getRadios() {
       const self = this;
-      axios.get('https://taradio.herokuapp.com/radios').then((response) => {
+      axios.get(process.env.VUE_APP_API_URI + '/radios').then((response) => {
         self.radios = response.data;
       });
     },

@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     signIn() {
-      if (this.user.name === 'taradio_admin' && this.user.password === 'tarapp20Ok') {
+      if (this.user.name === process.env.VUE_APP_USERNAME
+          && this.user.password === process.env.VUE_APP_PASSWORD) {
         this.$attrs.updateUser(this.user);
         localStorage.setItem('user', JSON.stringify(this.user));
         this.$router.replace('/admin/radios');

@@ -2,6 +2,9 @@
   <div id="Edit">
     <AdminHeader/>
     <div class="admin-content">
+      <router-link tag="div" class="btn btn-back btn bttn-pill bttn-sm" to="/admin/radios">
+        Back to List
+      </router-link>
       <vue-form-generator
         class="vue-form"
         :schema="schema"
@@ -211,7 +214,7 @@ export default {
     /* eslint no-underscore-dangle: 0 */
     /* eslint no-alert: 0 */
     /* eslint consistent-return: 0 */
-    axios.get(`https://taradio.herokuapp.com/radios/${this.$route.params.id}`).then((response) => {
+    axios.get(process.env.VUE_APP_API_URI + '/radios/' + this.$route.params.id).then((response) => {
       self.model = response.data;
     });
   },
@@ -219,14 +222,14 @@ export default {
     editRadio() {
       const self = this;
       /* eslint no-underscore-dangle: 0 */
-      axios.put(`https://taradio.herokuapp.com/radios/${this.model._id}`, this.model).then(() => {
+      axios.put(process.env.VUE_APP_API_URI + '/radios/' + this.model._id, this.model).then(() => {
         self.$router.push('/admin/radios');
       });
     },
     getSignedRequest(file) {
       const self = this;
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', `https://taradio.herokuapp.com/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.open('GET', process.env.VUE_APP_API_URI + '/sign-s3?file-name=' + file.name + '&file-type=' + file.type);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -254,6 +257,11 @@ export default {
 };
 </script>
 <style lang="scss">
+.btn-back{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
 #Edit{
   position: relative;
   top: -1.5rem;

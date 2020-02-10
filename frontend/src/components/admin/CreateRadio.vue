@@ -2,6 +2,9 @@
   <div id="Create">
     <AdminHeader/>
     <div class="admin-content">
+      <router-link tag="div" class="btn btn-back btn bttn-pill bttn-sm" to="/admin/radios">
+        Back to List
+      </router-link>
       <vue-form-generator
         class="vue-form"
         :schema="schema"
@@ -202,14 +205,14 @@ export default {
   methods: {
     createRadio() {
       const self = this;
-      axios.post('https://taradio.herokuapp.com/radios', this.model).then(() => {
+      axios.post(process.env.VUE_APP_API_URI + '/radios', this.model).then(() => {
         self.$router.push('/admin/radios');
       });
     },
     getSignedRequest(file) {
       const self = this;
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', `https://taradio.herokuapp.com/sign-s3?file-name=${file.name}&file-type=${file.type}`);
+      xhr.open('GET', process.env.VUE_APP_API_URI + '/sign-s3?file-name=' + file.name + '&file-type=' + file.type);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -237,6 +240,11 @@ export default {
 };
 </script>
 <style lang="scss">
+.btn-back{
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
 #Create{
   position: relative;
   top: -1.5rem;

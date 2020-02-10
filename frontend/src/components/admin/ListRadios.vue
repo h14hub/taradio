@@ -10,43 +10,48 @@
             Ajouter une nouvelle radio
           </router-link>
         </h2>
-        <div class="row row-header" style="display:flex;width:100%;align-items: center;">
-          <div class="col-md-1">Status</div>
-          <div class="col-md-2">Nom de la radio</div>
-          <div class="col-md-2">Ville</div>
-          <div class="col-md-2">URL du site</div>
-          <div class="col-md-2">URL du stream</div>
-          <div class="col-md-2">Genre</div>
-          <div class="col-md-1"></div>
-        </div>
-        <router-link
-          tag="div"
-          v-for="radio in radios"
-          :key="radio._id"
-          class="radio_admin container"
-          :to="`/admin/radios/${radio._id}/edit`">
-          <div class="row" style="display:flex;width:100%;align-items: center;">
-            <div class="col-md-1 published">
-              <img src="../../assets/radio_blk.svg" alt="" style="width:13px;">
-              <div>
-                {{ radio.published ? 'ON' : 'OFF'  }}
-              </div>
+        <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
+          <md-table-toolbar>
+            <div class="md-toolbar-section-start">
             </div>
-            <div class="col-md-2">{{ radio.name  }}</div>
-            <div class="col-md-2">{{ radio.city  }}</div>
-            <div class="col-md-2">{{ radio.siteUrl  }}</div>
-            <div class="col-md-2">{{ radio.streamUrl  }}</div>
-            <div class="col-md-2">{{ radio.genre  }}</div>
-            <div class="col-md-1 actions">
-              <router-link tag="div" :to="`/admin/radios/${radio._id}/edit`">
+
+            <md-field md-clearable class="md-toolbar-section-end">
+              <md-input placeholder="Search by name..." v-model="search" @input="searchOnTable" />
+            </md-field>
+          </md-table-toolbar>
+
+          <md-table-empty-state
+            md-label="No users found"
+            :md-description="`No radio found for this '${search}'
+             query. Try a different search term or create a new user.`">
+          </md-table-empty-state>
+
+          <md-table-row slot="md-table-row" slot-scope="{ item }">
+            <md-table-cell md-label="Status" md-sort-by="published" md-numeric>
+              <img src="../../assets/radio_blk.svg" alt="" style="width:13px;">
+              {{ item.published ? 'ON' : 'OFF'  }}
+            </md-table-cell>
+            <md-table-cell md-label="Name" md-sort-by="name" md-numeric>
+              {{ item.name }}
+            </md-table-cell>
+            <md-table-cell md-label="City" md-sort-by="city">
+              {{ item.city }}
+            </md-table-cell>
+            <md-table-cell md-label="SiteUrl" md-sort-by="siteUrl">
+              {{ item.siteUrl }}
+            </md-table-cell>
+            <md-table-cell md-label="StreamUrl" md-sort-by="streamUrl">
+              {{ item.streamUrl }}
+            </md-table-cell>
+            <md-table-cell md-label="Genre" md-sort-by="genre">
+              {{ item.genre }}
+            </md-table-cell><md-table-cell md-label="Actions" md-sort-by="action">
+              <router-link tag="div" :to="`/admin/radios/${item._id}/edit`">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
               </router-link>
-              <!-- <div @click="deleteRadio(radio._id)">
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              </div> -->
-            </div>
-          </div>
-        </router-link>
+            </md-table-cell>
+          </md-table-row>
+        </md-table>
       </div>
     </div>
   </div>
@@ -54,14 +59,27 @@
 
 <script>
 import axios from 'axios';
-
 import AdminHeader from './Header.vue';
+
+const toLower = text => text.toString().toLowerCase();
+
+const searchByAllField = (items, term) => {
+  if (term) {
+    // eslint-disable-next-line
+    return items.filter(item => (toLower(item.name).includes(toLower(term)) || toLower(item.city).includes(toLower(term)) || toLower(item.siteUrl).includes(toLower(term)) || toLower(item.streamUrl).includes(toLower(term))));
+  }
+  return items;
+};
 
 export default {
   components: { AdminHeader },
   data() {
     return {
+      search: null,
+      searched: [],
+      filter: '',
       radios: [],
+      filteredRadios: [],
     };
   },
   created() {
@@ -75,13 +93,30 @@ export default {
   methods: {
     getRadios() {
       const self = this;
-      axios.get('https://taradio.herokuapp.com/radios').then((response) => {
+      axios.get(process.env.VUE_APP_API_URI + '/radios').then((response) => {
         self.radios = response.data;
+        self.filteredRadios = response.data;
+        self.searched = response.data;
       });
+    },
+    searchOnTable() {
+      this.searched = searchByAllField(this.radios, this.search);
+    },
+    filterRadios() {
+      if (this.filter === '') {
+        this.filteredRadios = this.radios;
+      } else {
+        this.filteredRadios = this.radios.filter((r) => {
+          // eslint-disable-next-line
+          let truthArray = [];
+          Object.keys(r).forEach((k) => { truthArray.push(toString(r[k]).includes(this.filter)); });
+          return truthArray.some(e => e);
+        });
+      }
     },
     deleteRadio(id) {
       const self = this;
-      axios.delete(`https://taradio.herokuapp.com/radios/${id}`).then(() => {
+      axios.delete(process.env.VUE_APP_API_URI + '/radios/' + id).then(() => {
         self.getRadios();
       });
     },

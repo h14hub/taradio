@@ -43,7 +43,7 @@ export default {
   updated() {
     if (!this.$route.params.id) {
       /* eslint no-underscore-dangle: 0 */
-      this.$router.push(`/home/${this.filteredRadios[0]._id}`);
+      this.$router.push('/home/' + this.filteredRadios[0]._id);
     }
   },
   asyncComputed: {
@@ -92,7 +92,7 @@ export default {
     },
     goToAndHide(id) {
       this.show = !this.show;
-      this.$router.push(`/home/${id}`);
+      this.$router.push('/home/' + id);
     },
     distance(lat1, lon1, lat2, lon2, unit) {
       const radlat1 = Math.PI * lat1 / 180;

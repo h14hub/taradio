@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
+    "heroku-prebuild": "cd frontend && npm install -g @vue/cli-init  && npm install && npm run build",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
