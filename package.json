@@ -13,9 +13,9 @@
   "scripts": {
     "start": "node src/index.js",
     "serve_front": "cd frontend && vue-cli-service serve",
-    "build_front": "cd frontend && npx vue-cli-service build --mode production && rm -rf ../dist_front && mv dist ../dist_front",
+    "build_front": "cd frontend && vue-cli-service build --mode production && rm -rf ../dist_front && mv dist ../dist_front",
     "lint-front": "cd frontend && vue-cli-service lint",
-    "heroku-prebuild": "npm run build_front",
+    "heroku-postbuild": "npm run build_front",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
