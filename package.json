@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "heroku-prebuild": "cd frontend && npm install -g @vue/cli-service@latest && npm install -g @vue/cli-plugin-babel@latest && npm install -g @vue/cli@latest && npm install && npm run build",
+    "heroku-prebuild": "cd frontend && npm install -g @vue/cli-service@latest && npm install -g @vue/cli-plugin-babel@latest && npm install -g @vue/cli-plugin-eslint@latest && npm install && npm run build",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config -r babel-register\"",
     "clean": "rimraf dist",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist",
