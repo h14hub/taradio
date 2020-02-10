@@ -64,3 +64,4 @@ typings/
 .idea
 dist
 dist_front
+package-lock.json
