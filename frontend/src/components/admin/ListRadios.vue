@@ -10,7 +10,7 @@
             Ajouter une nouvelle radio
           </router-link>
         </h2>
-        <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card>
+        <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
           <md-table-toolbar>
             <div class="md-toolbar-section-start">
             </div>
