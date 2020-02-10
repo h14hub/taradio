@@ -63,4 +63,4 @@ typings/
 # Custom
 .idea
 dist
-
+dist_front
