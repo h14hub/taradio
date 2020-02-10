@@ -21,7 +21,7 @@
           </md-table-toolbar>
 
           <md-table-empty-state
-            md-label="No users found"
+            md-label="No radios found"
             :md-description="`No radio found for this '${search}'
              query. Try a different search term or create a new user.`">
           </md-table-empty-state>
