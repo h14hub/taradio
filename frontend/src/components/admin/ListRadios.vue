@@ -27,11 +27,11 @@
           </md-table-empty-state>
 
           <md-table-row slot="md-table-row" slot-scope="{ item }">
-            <md-table-cell md-label="Status" md-sort-by="published" md-numeric>
+            <md-table-cell md-label="Status" md-sort-by="published">
               <img src="../../assets/radio_blk.svg" alt="" style="width:13px;">
               {{ item.published ? 'ON' : 'OFF'  }}
             </md-table-cell>
-            <md-table-cell md-label="Name" md-sort-by="name" md-numeric>
+            <md-table-cell md-label="Name" md-sort-by="name">
               {{ item.name }}
             </md-table-cell>
             <md-table-cell md-label="City" md-sort-by="city">
@@ -44,7 +44,7 @@
               {{ item.streamUrl }}
             </md-table-cell>
             <md-table-cell md-label="Genre" md-sort-by="genre">
-              {{ item.genre }}
+               {{ item.genre ? item.genre : '-'  }}
             </md-table-cell><md-table-cell md-label="Actions" md-sort-by="action">
               <router-link tag="div" :to="`/admin/radios/${item._id}/edit`">
                 <i class="fa fa-pencil" aria-hidden="true"></i>

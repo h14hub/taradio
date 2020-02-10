@@ -117,4 +117,11 @@ p {
   max-width: 500px;
   margin: auto;
 }
+
+.md-table-cell-container {
+  padding: 1px 32px 1px 24px;
+  justify-content: flex-start;
+  display: flex;
+  text-align: left;
+}
 </style>
