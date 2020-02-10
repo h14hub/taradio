@@ -1,7 +1,7 @@
 <template>
   <div id="List">
     <AdminHeader/>
-    <div class="" style="max-width:unset;">
+    <div class="" style="max-width:unset;background-color: #3c488e;">
       <div class="admin-content">
         <h2>Liste des radios membres
           <router-link tag="div"
@@ -127,7 +127,6 @@ export default {
 <style lang="scss">
 @import '../../assets/styles.scss';
 .admin-content{
-  margin: 1rem;
   padding: 2rem;
   border-radius: 20px;
   background: white;
