@@ -160,11 +160,12 @@ export default {
   methods: {
     share() {
       if (navigator.share) {
-        navigator.share({
-          title: 'Web Fundamentals',
-          text: 'Check out Web Fundamentals — it rocks!',
-          url: 'https://developers.google.com/web',
+        var sharePromise = navigator.share({
+          title: 'Taradioapp',
+          text: 'Check out Taradio app — it rocks!',
+          url: 'http://www.taradioapp.com/',
         });
+        sharePromise.then(() => {console.log("shared")})
       }
     },
   },
